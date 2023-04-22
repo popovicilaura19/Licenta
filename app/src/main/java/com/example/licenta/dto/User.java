@@ -1,0 +1,65 @@
+package com.example.licenta.dto;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+import java.io.Serializable;
+
+@Entity(tableName = "user")
+public class User implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "user_id")
+    private long userId;
+    @ColumnInfo(name = "email")
+    private String email;
+    @ColumnInfo(name = "password")
+    private String password;
+
+    public User(long userId, String email, String password) {
+        this.userId = userId;
+        this.email = email;
+        this.password = password;
+    }
+
+    @Ignore
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
