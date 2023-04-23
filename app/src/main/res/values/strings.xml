@@ -9,5 +9,18 @@
     <string name="invalid_passsword">Your password is not correct!</string>
     <string name="invalid_credentials">Your email or your password are not correct!</string>
     <string name="new_loan_request">New Loan Request</string>
+    <string name="credit_type">Credit Type</string>
+    <string name="total_amount">Total Amount($)</string>
+    <string name="credit_period_number_of_months">Credit Period(number of months)</string>
+    <string name="interest_rate">Interest Rate(%)</string>
+    <string name="next">Next</string>
+
+    <string-array name="creditPeriod">
+        <item>12</item>
+        <item>24</item>
+        <item>36</item>
+        <item>48</item>
+        <item>64</item>
+    </string-array>
 
 </resources>
