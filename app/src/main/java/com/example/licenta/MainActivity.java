@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Intent intent;
     private User user = null;
+    private User signInUser = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isValid()) {
-                    User signInUser=createFromViews();
+                    createFromViews();
                     authenticateUser(signInUser);
                     if(user == null){
                         Toast.makeText(getApplicationContext(), R.string.invalid_credentials,Toast.LENGTH_SHORT).show();
@@ -124,13 +125,13 @@ public class MainActivity extends AppCompatActivity {
     private User createFromViews() {
         String email = tietEmail.getText().toString();
         String password = tietPassword.getText().toString();
-        if (user == null) {
-            user = new User(email, password);
+        if (signInUser == null) {
+            signInUser = new User(email, password);
         } else {
-            user.setEmail(email);
-            user.setPassword(password);
+            signInUser.setEmail(email);
+            signInUser.setPassword(password);
         }
-        return user;
+        return signInUser;
     }
 
     private Callback<List<User>> getAllCallback() {
