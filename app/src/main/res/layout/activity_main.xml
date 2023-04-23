@@ -43,6 +43,7 @@
         android:layout_margin="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textEmailAddress"
             android:id="@+id/id_tiet_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,9 +59,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_til_email"
+        app:passwordToggleEnabled="true"
         android:layout_margin="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
             android:id="@+id/id_tiet_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

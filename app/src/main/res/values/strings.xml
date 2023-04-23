@@ -8,5 +8,6 @@
     <string name="sign_in_form_error">Please fill in the required information!</string>
     <string name="invalid_passsword">Your password is not correct!</string>
     <string name="invalid_credentials">Your email or your password are not correct!</string>
+    <string name="new_loan_request">New Loan Request</string>
 
 </resources>

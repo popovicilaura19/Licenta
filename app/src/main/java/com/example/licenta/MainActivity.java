@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean isValid() {
-        if (tietEmail.getText() == null || tietPassword.getText() == null) {
+        if (tietEmail.getText().toString().isEmpty() || tietPassword.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(),
                             R.string.sign_in_form_error,
                             Toast.LENGTH_SHORT)
