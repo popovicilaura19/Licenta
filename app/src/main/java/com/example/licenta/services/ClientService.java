@@ -8,6 +8,7 @@ import com.example.licenta.database.ClientDao;
 import com.example.licenta.database.DatabaseManager;
 import com.example.licenta.dto.Client;
 
+import java.util.List;
 import java.util.concurrent.Callable;
 
 public class ClientService {
@@ -31,5 +32,15 @@ public class ClientService {
             }
         };
         asyncTaskRunner.executeAsync(insertOperation, activityThread);
+    }
+
+    public void getAll(Callback<List<Client>> activityThread){
+        Callable<List<Client>> getAllOperation = new Callable<List<Client>>() {
+            @Override
+            public List<Client> call() throws Exception {
+                return clientDao.getAll();
+            }
+        };
+        asyncTaskRunner.executeAsync(getAllOperation, activityThread);
     }
 }
