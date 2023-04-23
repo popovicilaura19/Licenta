@@ -14,9 +14,22 @@
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="281dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_img_icon"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="16dp"/>
+        android:layout_marginTop="32dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"/>
+
+    <ImageView
+        android:id="@+id/id_img_icon"
+        android:layout_width="149dp"
+        android:layout_height="221dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/id_tv_welcome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/id_til_email"
@@ -26,8 +39,8 @@
         tools:layout_editor_absoluteY="125dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_tv_welcome"
-        android:layout_margin="64dp">
+        app:layout_constraintTop_toBottomOf="@id/id_img_icon"
+        android:layout_margin="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_tiet_email"
@@ -45,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_til_email"
-        android:layout_margin="16dp">
+        android:layout_margin="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_tiet_password"
@@ -65,6 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="64dp"/>
+
 
 
 
