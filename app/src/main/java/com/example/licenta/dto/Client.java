@@ -2,6 +2,7 @@ package com.example.licenta.dto;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -42,6 +43,10 @@ public class Client implements Serializable {
         this.nationality = nationality;
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    @Ignore
+    public Client() {
     }
 
     public long getId() {

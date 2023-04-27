@@ -17,4 +17,6 @@ public interface ClientDao {
     @Query("select * from client")
     List<Client> getAll();
 
+    @Query("SELECT * FROM client WHERE id = :userId")
+    Client getClientByUserId(long userId);
 }

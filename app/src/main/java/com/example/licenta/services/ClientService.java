@@ -43,4 +43,17 @@ public class ClientService {
         };
         asyncTaskRunner.executeAsync(getAllOperation, activityThread);
     }
+
+    public void getClientByUserId(long Id, Callback<Client> activityThread) {
+        Callable<Client> getClientByIdOperation = new Callable<Client>() {
+            @Override
+            public Client call() throws Exception {
+                if (Id <= 0) {
+                    return null;
+                }
+                return clientDao.getClientByUserId(Id);
+            }
+        };
+        asyncTaskRunner.executeAsync(getClientByIdOperation, activityThread);
+    }
 }

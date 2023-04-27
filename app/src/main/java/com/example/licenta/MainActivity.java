@@ -23,10 +23,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String UPDATED_POSITION = "updatedPosition";
-    public static final String ACTION = "action";
-    public static final String UPDATE_ACTION = "update";
-    public static final String ADD_ACTION = "add";
     private TextInputEditText tietEmail;
     private TextInputEditText tietPassword;
     private Button btnSignIn;
@@ -48,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initComponents();
 
-        launcher=getLauncher();
+        launcher = getLauncher();
         userService = new UserService(getApplicationContext());
         userService.getAll(getAllCallback());
     }
@@ -81,10 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 if (isValid()) {
                     createFromViews();
                     authenticateUser(signInUser);
-                    if(user == null){
-                        Toast.makeText(getApplicationContext(), R.string.invalid_credentials,Toast.LENGTH_SHORT).show();
-                    }
-                    else{
+                    if (user == null) {
+                        Toast.makeText(getApplicationContext(), R.string.invalid_credentials, Toast.LENGTH_SHORT).show();
+                    } else {
                         Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
                         intent.putExtra(USER_KEY, (Serializable) user);
                         setResult(RESULT_OK, intent);
@@ -96,13 +91,13 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private void authenticateUser(User signInUser){
-        for(int i=0;i<users.size();i++){
-            if(users.get(i).getEmail().equals(signInUser.getEmail())){
-                if(users.get(i).getPassword().equals(signInUser.getPassword())){
-                    user=users.get(i);
+    private void authenticateUser(User signInUser) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(signInUser.getEmail())) {
+                if (users.get(i).getPassword().equals(signInUser.getPassword())) {
+                    user = users.get(i);
                     break;
-                }else {
+                } else {
                     Toast.makeText(getApplicationContext(),
                             R.string.invalid_passsword, Toast.LENGTH_SHORT).show();
                     break;

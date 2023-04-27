@@ -5,6 +5,7 @@
     <string name="sign_in">Sign In</string>
     <string name="welcome_to_digital_bank">Welcome To Digital Bank!</string>
     <string name="welcome_to_home_page">Welcome to Home Page!</string>
+    <string name="hello">Hello, </string>
     <string name="sign_in_form_error">Please fill in the required information!</string>
     <string name="invalid_passsword">Your password is not correct!</string>
     <string name="invalid_credentials">Your email or your password are not correct!</string>
