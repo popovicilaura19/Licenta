@@ -17,8 +17,7 @@ import com.example.licenta.dto.Client;
 import com.example.licenta.dto.User;
 import com.example.licenta.services.ClientService;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -30,21 +29,16 @@ public class HomePageActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcher;
     //    private Intent intent;
     public static final String USER_KEY = "userKey";
-    private List<Client> clientList = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         user = (User) getIntent().getSerializableExtra(USER_KEY);
-        clientList.add(new Client(1, "Popescu", "Ion", "1950302450012", "Str Toamnei nr 23", "Bucuresti", "Romania", "RO", "popescuion@gmail.com", "+40711123456"));
-        clientList.add(new Client(2, "Ionescu", "Maria", "2970504450012", "Str Doamnei nr 23", "Bucuresti", "Romania", "RO", "ionescumaria@gmail.com", "+40722123456"));
         clientService = new ClientService(getApplicationContext());
-//        clientService.getClientByUserId(user.getUserId(), getClientCallback());
-        client = getCurrentClient(user.getUserId());
-        launcher = getLauncher();
+        clientService.getClientByUserId(user.getUserId(), getClientCallback());
         setContentView(R.layout.activity_home_page);
         initComponents();
+        launcher = getLauncher();
     }
 
     private Callback<Client> getClientCallback() {
@@ -61,21 +55,10 @@ public class HomePageActivity extends AppCompatActivity {
                 client.setNationality(result.getNationality());
                 client.setEmail(result.getEmail());
                 client.setPhoneNumber(result.getPhoneNumber());
+                tvHello = findViewById(R.id.id_tv_homePage);
+                tvHello.append(client.getSurname() + "!");
             }
         };
-    }
-
-    private Client getCurrentClient(long id) {
-        if (id < 0) {
-            return null;
-        } else {
-            for (int i = 0; i < clientList.size(); i++) {
-                if (clientList.get(i).getId() == id) {
-                    return clientList.get(i);
-                }
-            }
-        }
-        return null;
     }
 
     private ActivityResultLauncher<Intent> getLauncher() {
@@ -93,8 +76,6 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
-        tvHello = findViewById(R.id.id_tv_homePage);
-        tvHello.append(client.getSurname() + "!");
         btnNewLoan = findViewById(R.id.id_btn_newLoanRequest);
         btnNewLoan.setOnClickListener(newLoanRequestEventListener());
     }
@@ -104,7 +85,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoanRequestFormActivity.class);
-//                intent.putExtra(USER_KEY, (Serializable) user);
+                intent.putExtra(USER_KEY, (Serializable) client);
                 setResult(RESULT_OK, intent);
                 finish();
                 launcher.launch(intent);
