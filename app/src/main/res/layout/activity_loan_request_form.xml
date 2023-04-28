@@ -84,7 +84,7 @@
         app:layout_constraintStart_toEndOf="@id/id_tv_period"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_til_amount"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="46dp"/>
 
     <TextView
         android:id="@+id/id_tv_interest_rate"
@@ -97,7 +97,7 @@
         app:layout_constraintEnd_toStartOf="@id/id_tv_interest_rate"
         app:layout_constraintTop_toBottomOf="@id/id_tv_period"
         android:layout_marginTop="64dp"
-        android:layout_marginStart="44dp"/>
+        android:layout_marginStart="40dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/id_til_interest_rate"
@@ -108,7 +108,7 @@
         app:layout_constraintStart_toEndOf="@id/id_tv_interest_rate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_spn_period"
-        android:layout_marginTop="32dp">
+        android:layout_marginTop="36dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:inputType="numberDecimal"
