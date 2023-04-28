@@ -41,7 +41,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/id_til_amount"
         app:layout_constraintTop_toBottomOf="@id/id_spn_creditType"
-        android:layout_margin="32dp"/>
+        android:layout_marginTop="64dp"
+        android:layout_marginStart="16dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/id_til_amount"
@@ -52,7 +53,8 @@
         app:layout_constraintStart_toEndOf="@id/id_tv_total_amount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_spn_creditType"
-        android:layout_margin="16dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:inputType="numberDecimal"
@@ -72,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/id_spn_period"
         app:layout_constraintTop_toBottomOf="@id/id_tv_total_amount"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="86dp"
         android:layout_marginStart="8dp"/>
 
     <Spinner
@@ -84,7 +86,7 @@
         app:layout_constraintStart_toEndOf="@id/id_tv_period"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_til_amount"
-        android:layout_marginTop="46dp"/>
+        android:layout_marginTop="56dp"/>
 
     <TextView
         android:id="@+id/id_tv_interest_rate"
@@ -96,7 +98,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/id_tv_interest_rate"
         app:layout_constraintTop_toBottomOf="@id/id_tv_period"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="84dp"
         android:layout_marginStart="40dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -108,7 +110,7 @@
         app:layout_constraintStart_toEndOf="@id/id_tv_interest_rate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_spn_period"
-        android:layout_marginTop="36dp">
+        android:layout_marginTop="60dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:inputType="numberDecimal"

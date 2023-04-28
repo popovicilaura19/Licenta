@@ -15,6 +15,14 @@
     <string name="credit_period_number_of_months">Credit Period(number of months)</string>
     <string name="interest_rate">Interest Rate(%)</string>
     <string name="next">Next</string>
+    <string name="iban">IBAN</string>
+    <string name="number_of_kids">Number of Kids</string>
+    <string name="family_situation">Family Situation</string>
+    <string name="occupation">Occupation</string>
+    <string name="date_of_employment">Date Of Employment</string>
+    <string name="monthly_net_income">Monthly Net Income($)</string>
+    <string name="send_loan_request">Send Loan Request</string>
+    <string name="cancel">Cancel</string>
 
     <string-array name="creditPeriod">
         <item>12</item>

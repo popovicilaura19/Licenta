@@ -13,32 +13,25 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.licenta.dto.Client;
-import com.example.licenta.utils.CreditType;
+import com.example.licenta.utils.FamilySituation;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class LoanRequestFormActivity extends AppCompatActivity {
+public class LoanRequestFormSecondActivity extends AppCompatActivity {
 
-    private Spinner spnCreditType;
-    private TextInputEditText tietTotalAmount;
-    private Spinner spnPeriod;
-    private TextInputEditText tietInterestRate;
+    private TextInputEditText tietIban;
+    private TextInputEditText tietNrKids;
+    private Spinner spnFamilySituation;
     private Button btnNext;
-
     private ActivityResultLauncher<Intent> launcher;
 
-    public static final String LOAN_REQUEST_KEY = "loanRequestKey";
-
-    private Intent intent;
-    private Client client = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loan_request_form);
+        setContentView(R.layout.activity_loan_request_form_second);
 
         initComponents();
-        launcher = getLauncher();
+        launcher=getLauncher();
     }
 
     private ActivityResultLauncher<Intent> getLauncher() {
@@ -56,25 +49,21 @@ public class LoanRequestFormActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
-        spnCreditType = findViewById(R.id.id_spn_creditType);
-        ArrayAdapter<CreditType> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
-                CreditType.values());
-        spnCreditType.setAdapter(adapter1);
-        tietTotalAmount = findViewById(R.id.id_tiet_amount);
-        spnPeriod = findViewById(R.id.id_spn_period);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.creditPeriod,
-                android.R.layout.simple_spinner_dropdown_item);
-        spnPeriod.setAdapter(adapter2);
-        tietInterestRate = findViewById(R.id.id_tiet_interest_rate);
-        btnNext = findViewById(R.id.id_btn_next);
-        btnNext.setOnClickListener(nextEventListener());
+        tietIban = findViewById(R.id.id_tiet_iban);
+        tietNrKids = findViewById(R.id.id_tiet_nrKids);
+        spnFamilySituation = findViewById(R.id.id_spn_familySituation);
+        ArrayAdapter<FamilySituation> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
+                FamilySituation.values());
+        spnFamilySituation.setAdapter(adapter1);
+        btnNext = findViewById(R.id.id_btn_goNext);
+        btnNext.setOnClickListener(goNextEventListener());
     }
 
-    private View.OnClickListener nextEventListener() {
+    private View.OnClickListener goNextEventListener() {
         return new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoanRequestFormSecondActivity.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoanRequestFormThirdActivity.class);
 //                intent.putExtra(USER_KEY, (Serializable) user);
                 setResult(RESULT_OK, intent);
                 finish();
