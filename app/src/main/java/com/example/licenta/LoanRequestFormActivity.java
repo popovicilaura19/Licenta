@@ -29,7 +29,7 @@ public class LoanRequestFormActivity extends AppCompatActivity {
 
     public static final String LOAN_REQUEST_KEY = "loanRequestKey";
 
-    private Intent intent;
+    private Intent homeIntent;
     private Client client = null;
 
     @Override
@@ -39,6 +39,7 @@ public class LoanRequestFormActivity extends AppCompatActivity {
 
         initComponents();
         launcher = getLauncher();
+        homeIntent = getIntent();
     }
 
     private ActivityResultLauncher<Intent> getLauncher() {
@@ -76,6 +77,7 @@ public class LoanRequestFormActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoanRequestFormSecondActivity.class);
 //                intent.putExtra(USER_KEY, (Serializable) user);
+                intent.putExtra("home_intent", homeIntent);
                 setResult(RESULT_OK, intent);
                 finish();
                 launcher.launch(intent);

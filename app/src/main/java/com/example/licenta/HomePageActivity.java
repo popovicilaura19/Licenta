@@ -70,7 +70,8 @@ public class HomePageActivity extends AppCompatActivity {
         return new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
-
+                if (result.getResultCode() == RESULT_CANCELED) {
+                }
             }
         };
     }
@@ -87,7 +88,7 @@ public class HomePageActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), LoanRequestFormActivity.class);
                 intent.putExtra(USER_KEY, (Serializable) client);
                 setResult(RESULT_OK, intent);
-                finish();
+//                finish();
                 launcher.launch(intent);
             }
         };

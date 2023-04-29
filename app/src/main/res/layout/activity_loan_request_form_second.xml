@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/id_til_nrKids"
         app:layout_constraintTop_toBottomOf="@id/id_tv_iban"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="64dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/id_til_nrKids"
@@ -61,10 +61,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_til_iban"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp">
+        android:layout_marginTop="28dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_tiet_nrKids"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/number_of_kids" />
@@ -81,7 +82,7 @@
         app:layout_constraintEnd_toStartOf="@id/id_spn_familySituation"
         app:layout_constraintTop_toBottomOf="@id/id_tv_nrKids"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="64dp"/>
 
     <Spinner
         android:id="@+id/id_spn_familySituation"
@@ -93,18 +94,122 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_til_nrKids"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="36dp"/>
 
-    <Button
-        android:id="@+id/id_btn_goNext"
+    <TextView
+        android:id="@+id/id_tv_occupation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
-        tools:layout_editor_absoluteX="197dp"
-        tools:layout_editor_absoluteY="412dp"
+        android:text="@string/occupation"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="314dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_spn_occupation"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_familySituation"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="16dp"/>
+
+    <Spinner
+        android:id="@+id/id_spn_occupation"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="441dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_occupation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_spn_familySituation"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_dateEmpl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_of_employment"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="511dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_til_dateEmpl"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_occupation"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="68dp"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_til_dateEmpl"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="266dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_dateEmpl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_spn_occupation"
+        android:layout_marginTop="32dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="date"
+            android:id="@+id/id_tiet_dateEmpl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/date_of_employment" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/id_tv_monthlyIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/monthly_net_income"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="554dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_til_monthlyIncome"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_dateEmpl"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="76dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_til_monthlyIncome"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="481dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_monthlyIncome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_til_dateEmpl"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_tiet_monthlyIncome"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/monthly_net_income" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/id_btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_loan_request"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="666dp"
+        app:layout_constraintStart_toEndOf="@id/id_btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="64dp"/>
+
+    <Button
+        android:id="@+id/id_btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="298dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_btn_send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="64dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
