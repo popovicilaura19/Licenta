@@ -100,9 +100,11 @@ public class LoanRequestFormSecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isValid()) {
                     createFromViews();
-                    homeIntent.putExtra(LOAN_KEY, (Serializable) loanRequest);
+                    Intent statusIntent=new Intent(getApplicationContext(), RequestStatusActivity.class);
+                    statusIntent.putExtra(LOAN_KEY, (Serializable) loanRequest);
                     setResult(RESULT_OK, homeIntent);
                     finish();
+                    launcherSendRequest.launch(statusIntent);
                 }
             }
         };

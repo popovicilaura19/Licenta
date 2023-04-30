@@ -23,6 +23,7 @@
     <string name="monthly_net_income">Monthly Net Income($)</string>
     <string name="send_loan_request">Send Loan Request</string>
     <string name="cancel">Cancel</string>
+    <string name="go_home">Go Home</string>
 
     <string-array name="creditPeriod">
         <item>12</item>

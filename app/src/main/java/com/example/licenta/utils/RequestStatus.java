@@ -1,5 +1,5 @@
 package com.example.licenta.utils;
 
 public enum RequestStatus {
-    ACTIVE, APPROVED
+    APPROVED, REQUIRES_AGENT_REVIEW, REJECTED
 }
