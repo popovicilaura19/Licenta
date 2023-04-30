@@ -73,6 +73,11 @@ public class LoanRequest implements Serializable {
         this.monthlyIncome = monthlyIncome;
     }
 
+    @Ignore
+    public LoanRequest(long clientId){
+        this.clientId=clientId;
+    }
+
     public long getRequestId() {
         return requestId;
     }

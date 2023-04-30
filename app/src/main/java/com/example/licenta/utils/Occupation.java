@@ -17,6 +17,16 @@ public enum Occupation {
         return occupation;
     }
 
+    public  static Occupation getOccupation(String fromString) {
+        for (Occupation occupation : Occupation.values()
+        ) {
+            if (occupation.occupation.equals(fromString)) {
+                return occupation;
+            }
+        }
+        return null;
+    }
+
 }
 
 

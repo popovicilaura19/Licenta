@@ -16,4 +16,14 @@ public enum CreditType {
     public String toString() {
         return creditType;
     }
+
+    public  static CreditType getType(String fromString) {
+        for (CreditType type : CreditType.values()
+        ) {
+            if (type.creditType.equals(fromString)) {
+                return type;
+            }
+        }
+        return null;
+    }
 }

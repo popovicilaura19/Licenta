@@ -16,4 +16,14 @@ public enum FamilySituation {
     public String toString() {
         return familySituation;
     }
+
+    public static FamilySituation getSituation(String fromString) {
+        for (FamilySituation situation : FamilySituation.values()
+        ) {
+            if (situation.familySituation.equals(fromString)) {
+                return situation;
+            }
+        }
+        return null;
+    }
 }

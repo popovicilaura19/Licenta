@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.licenta.async.Callback;
 import com.example.licenta.dto.Client;
+import com.example.licenta.dto.LoanRequest;
 import com.example.licenta.dto.User;
 import com.example.licenta.services.ClientService;
 
@@ -29,6 +30,10 @@ public class HomePageActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcher;
     //    private Intent intent;
     public static final String USER_KEY = "userKey";
+    public static final String CLIENT_KEY = "clientKey";
+    public static final String LOAN_REQUEST_KEY = "loanRequestKey";
+    public static final String LOAN_KEY = "loanKey";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +76,12 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onActivityResult(ActivityResult result) {
                 if (result.getResultCode() == RESULT_CANCELED) {
+                }else{
+                    if(result.getResultCode() ==RESULT_OK && result.getData()!=null){
+                        LoanRequest loanRequest = (LoanRequest) result.getData().getSerializableExtra(LOAN_KEY);
+                        System.out.println(loanRequest);
+
+                    }
                 }
             }
         };
@@ -86,7 +97,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoanRequestFormActivity.class);
-                intent.putExtra(USER_KEY, (Serializable) client);
+                intent.putExtra(CLIENT_KEY, (Serializable) client);
                 setResult(RESULT_OK, intent);
 //                finish();
                 launcher.launch(intent);
