@@ -28,7 +28,7 @@ public class LoanRequest implements Serializable {
     @ColumnInfo(name = "period")
     private int period;
     @ColumnInfo(name = "interestRate")
-    private long interestRate;
+    private float interestRate;
     @ColumnInfo(name = "IBAN")
     private String IBAN;
     @ColumnInfo(name = "nrKids")
@@ -42,7 +42,7 @@ public class LoanRequest implements Serializable {
     @ColumnInfo(name = "monthlyIncome")
     private long monthlyIncome;
 
-    public LoanRequest(long clientId, CreditType creditType, long totalAmount, int period, long interestRate, String IBAN, int nrKids, FamilySituation familySituation, Occupation occupation, String dateOfEmployment, long monthlyIncome) {
+    public LoanRequest(long clientId, CreditType creditType, long totalAmount, int period, float interestRate, String IBAN, int nrKids, FamilySituation familySituation, Occupation occupation, String dateOfEmployment, long monthlyIncome) {
         this.clientId = clientId;
         this.creditType = creditType;
         this.totalAmount = totalAmount;
@@ -57,7 +57,7 @@ public class LoanRequest implements Serializable {
     }
 
     @Ignore
-    public LoanRequest(long requestId, long clientId, RequestStatus status, CreditType creditType, long totalAmount, int period, long interestRate, String IBAN, int nrKids, FamilySituation familySituation, Occupation occupation, String dateOfEmployment, long monthlyIncome) {
+    public LoanRequest(long requestId, long clientId, RequestStatus status, CreditType creditType, long totalAmount, int period, float interestRate, String IBAN, int nrKids, FamilySituation familySituation, Occupation occupation, String dateOfEmployment, long monthlyIncome) {
         this.requestId = requestId;
         this.clientId = clientId;
         this.status = status;
@@ -126,11 +126,11 @@ public class LoanRequest implements Serializable {
         this.period = period;
     }
 
-    public long getInterestRate() {
+    public float getInterestRate() {
         return interestRate;
     }
 
-    public void setInterestRate(long interestRate) {
+    public void setInterestRate(float interestRate) {
         this.interestRate = interestRate;
     }
 

@@ -101,11 +101,11 @@ public class LoanRequestFormActivity extends AppCompatActivity {
         String creditType = spnCreditType.getSelectedItem().toString();
         long totalAmount = Long.parseLong(tietTotalAmount.getText().toString());
         int period= Integer.parseInt(spnPeriod.getSelectedItem().toString());
-//        long interestRate= Long.parseLong(tietInterestRate.getText().toString());
+        float interestRate= Float.parseFloat(tietInterestRate.getText().toString());
         loanRequest.setCreditType(CreditType.getType(creditType));
         loanRequest.setTotalAmount(totalAmount);
         loanRequest.setPeriod(period);
-//        loanRequest.setInterestRate(interestRate);
+        loanRequest.setInterestRate(interestRate);
     }
 
     private boolean isValid() {

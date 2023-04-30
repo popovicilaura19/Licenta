@@ -114,13 +114,13 @@ public class LoanRequestFormSecondActivity extends AppCompatActivity {
         String familySituation = spnFamilySituation.getSelectedItem().toString();
         String occupation = spnOccupation.getSelectedItem().toString();
         String dateOfEmployment = tietDateOfEmployment.getText().toString();
-//        long monthlyIncome= Long.parseLong(tietMonthlyIncome.getText().toString());
+        long monthlyIncome= Long.parseLong(tietMonthlyIncome.getText().toString());
         loanRequest.setIBAN(iban);
         loanRequest.setNrKids(nrKids);
         loanRequest.setFamilySituation(FamilySituation.getSituation(familySituation));
         loanRequest.setOccupation(Occupation.getOccupation(occupation));
         loanRequest.setDateOfEmployment(dateOfEmployment);
-//        loanRequest.setMonthlyIncome(monthlyIncome);
+        loanRequest.setMonthlyIncome(monthlyIncome);
     }
 
     private boolean isValid() {
