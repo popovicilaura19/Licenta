@@ -61,7 +61,7 @@ public class HomePageActivity extends AppCompatActivity {
                 client.setEmail(result.getEmail());
                 client.setPhoneNumber(result.getPhoneNumber());
                 tvHello = findViewById(R.id.id_tv_homePage);
-                tvHello.append(client.getSurname() + "!");
+                tvHello.append(" " + client.getSurname() + "!");
             }
         };
     }
@@ -76,8 +76,8 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onActivityResult(ActivityResult result) {
                 if (result.getResultCode() == RESULT_CANCELED) {
-                }else{
-                    if(result.getResultCode() ==RESULT_OK && result.getData()!=null){
+                } else {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
                         LoanRequest loanRequest = (LoanRequest) result.getData().getSerializableExtra(LOAN_KEY);
                         System.out.println(loanRequest);
 

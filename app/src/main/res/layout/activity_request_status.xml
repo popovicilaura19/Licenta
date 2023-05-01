@@ -8,15 +8,20 @@
 
     <TextView
         android:id="@+id/id_tv_status"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/your_loan_request_was_sent_and_its_current_status_is"
         tools:layout_editor_absoluteX="270dp"
         tools:layout_editor_absoluteY="162dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="16dp"/>
+        android:layout_margin="64dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"/>
+
 
     <Button
         android:id="@+id/id_btn_goHome"
