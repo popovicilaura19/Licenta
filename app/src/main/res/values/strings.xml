@@ -25,6 +25,8 @@
     <string name="cancel">Cancel</string>
     <string name="go_home">Go Home</string>
     <string name="your_loan_request_was_sent_and_its_current_status_is">Your loan request was sent and its current status is </string>
+    <string name="need_help">Need help deciding?</string>
+    <string name="loan_quiz">Loan Quiz</string>
 
     <string-array name="creditPeriod">
         <item>12</item>

@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.licenta.async.Callback;
 import com.example.licenta.dto.LoanRequest;
 import com.example.licenta.services.LoanRequestService;
+import com.example.licenta.utils.CreditType;
+import com.example.licenta.utils.FamilySituation;
+import com.example.licenta.utils.Occupation;
 import com.example.licenta.utils.RequestStatus;
 
 public class RequestStatusActivity extends AppCompatActivity {
@@ -33,7 +36,7 @@ public class RequestStatusActivity extends AppCompatActivity {
         initComponents();
         intent = getIntent();
         loanRequest = (LoanRequest) getIntent().getSerializableExtra(LOAN_KEY);
-        loanRequest.setStatus(RequestStatus.APPROVED);
+        analyzeRequest();
         loanRequestService = new LoanRequestService(getApplicationContext());
         loanRequestService.insert(loanRequest, insertLoanCallback());
 
@@ -65,6 +68,26 @@ public class RequestStatusActivity extends AppCompatActivity {
     }
 
     public void analyzeRequest() {
-
+        if (loanRequest.getCreditType() != CreditType.HOUSE_LOAN) {
+            if (loanRequest.getTotalAmount() < 100000) {
+                if (loanRequest.getTotalAmount() / loanRequest.getPeriod() < loanRequest.getMonthlyIncome() / 2) {
+                    if (loanRequest.getOccupation() != Occupation.UNEMPLOYED) {
+                        if (loanRequest.getNrKids() < 0 && loanRequest.getFamilySituation() != FamilySituation.DIVORCED) {
+                            loanRequest.setStatus(RequestStatus.APPROVED);
+                        } else {
+                            loanRequest.setStatus(RequestStatus.REQUIRES_AGENT_REVIEW);
+                        }
+                    } else {
+                        loanRequest.setStatus(RequestStatus.REQUIRES_AGENT_REVIEW);
+                    }
+                } else {
+                    loanRequest.setStatus(RequestStatus.REJECTED);
+                }
+            } else {
+                loanRequest.setStatus(RequestStatus.REQUIRES_AGENT_REVIEW);
+            }
+        } else {
+            loanRequest.setStatus(RequestStatus.REQUIRES_AGENT_REVIEW);
+        }
     }
 }
