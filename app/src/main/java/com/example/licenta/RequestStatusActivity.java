@@ -23,7 +23,6 @@ public class RequestStatusActivity extends AppCompatActivity {
     private Button btnGoHome;
     private ActivityResultLauncher<Intent> launcherGoHome;
     private Intent intent;
-    public static final String LOAN_REQUEST_KEY = "loanRequestKey";
     public static final String LOAN_KEY = "loanKey";
     private LoanRequest loanRequest;
     private LoanRequestService loanRequestService;
@@ -72,7 +71,7 @@ public class RequestStatusActivity extends AppCompatActivity {
             if (loanRequest.getTotalAmount() < 100000) {
                 if (loanRequest.getTotalAmount() / loanRequest.getPeriod() < loanRequest.getMonthlyIncome() / 2) {
                     if (loanRequest.getOccupation() != Occupation.UNEMPLOYED) {
-                        if (loanRequest.getNrKids() < 0 && loanRequest.getFamilySituation() != FamilySituation.DIVORCED) {
+                        if (loanRequest.getNrKids() == 0 || loanRequest.getFamilySituation() != FamilySituation.DIVORCED) {
                             loanRequest.setStatus(RequestStatus.APPROVED);
                         } else {
                             loanRequest.setStatus(RequestStatus.REQUIRES_AGENT_REVIEW);

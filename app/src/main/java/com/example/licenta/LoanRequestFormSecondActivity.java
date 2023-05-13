@@ -19,8 +19,6 @@ import com.example.licenta.utils.FamilySituation;
 import com.example.licenta.utils.Occupation;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.io.Serializable;
-
 public class LoanRequestFormSecondActivity extends AppCompatActivity {
 
     private TextInputEditText tietIban;
@@ -100,8 +98,8 @@ public class LoanRequestFormSecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isValid()) {
                     createFromViews();
-                    Intent statusIntent=new Intent(getApplicationContext(), RequestStatusActivity.class);
-                    statusIntent.putExtra(LOAN_KEY, (Serializable) loanRequest);
+                    Intent statusIntent = new Intent(getApplicationContext(), RequestStatusActivity.class);
+                    statusIntent.putExtra(LOAN_KEY, loanRequest);
                     setResult(RESULT_OK, homeIntent);
                     finish();
                     launcherSendRequest.launch(statusIntent);
@@ -116,7 +114,7 @@ public class LoanRequestFormSecondActivity extends AppCompatActivity {
         String familySituation = spnFamilySituation.getSelectedItem().toString();
         String occupation = spnOccupation.getSelectedItem().toString();
         String dateOfEmployment = tietDateOfEmployment.getText().toString();
-        long monthlyIncome= Long.parseLong(tietMonthlyIncome.getText().toString());
+        long monthlyIncome = Long.parseLong(tietMonthlyIncome.getText().toString());
         loanRequest.setIBAN(iban);
         loanRequest.setNrKids(nrKids);
         loanRequest.setFamilySituation(FamilySituation.getSituation(familySituation));

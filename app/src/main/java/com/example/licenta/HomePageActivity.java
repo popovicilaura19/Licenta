@@ -44,8 +44,6 @@ public class HomePageActivity extends AppCompatActivity {
     //    private Intent intent;
     public static final String USER_KEY = "userKey";
     public static final String CLIENT_KEY = "clientKey";
-    public static final String LOAN_REQUEST_KEY = "loanRequestKey";
-    public static final String LOAN_KEY = "loanKey";
 
 
     @Override
@@ -118,9 +116,7 @@ public class HomePageActivity extends AppCompatActivity {
                 if (result.getResultCode() == RESULT_CANCELED) {
                 } else {
                     if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-                        LoanRequest loanRequest = (LoanRequest) result.getData().getSerializableExtra(LOAN_KEY);
-                        System.out.println(loanRequest);
-
+                        HomePageActivity.super.recreate();
                     }
                 }
             }
