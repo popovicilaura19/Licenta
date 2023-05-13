@@ -50,7 +50,8 @@
     <string name="dialog_pending_message">To finalise this loan request, you have to set up a meeting with an agent. Continue?</string>
     <string name="dialog_yes_label">Yes</string>
     <string name="dialog_no_label">No</string>
-
+    <string name="fill_in_the_details_for_your_meeting_with_our_agent">Fill in the details for your meeting with our agent!</string>
+    <string name="set_meeting">Set Meeting</string>
 
 
 </resources>

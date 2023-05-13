@@ -118,9 +118,9 @@ public class HomePageActivity extends AppCompatActivity {
         return new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-//                Intent intent = new Intent(getApplicationContext(), ChartActivity.class);
-//                intent.putExtra(ChartActivity.ACCOUNTS_KEY, (Serializable) bankAccounts);
-//                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), AgentAppointmentActivity.class);
+//                intent.putExtra(Ag.ACCOUNTS_KEY, (Serializable) bankAccounts);
+                startActivity(intent);
             }
         };
     }
