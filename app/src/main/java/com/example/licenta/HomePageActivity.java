@@ -1,8 +1,11 @@
 package com.example.licenta;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -77,9 +80,55 @@ public class HomePageActivity extends AppCompatActivity {
                 lvActiveLoans = findViewById(R.id.id_lv_activeLoans);
                 LoanRequestAdapter adapter = new LoanRequestAdapter(getApplicationContext(), R.layout.lv_active_loan_item, activeLoans, getLayoutInflater());
                 lvActiveLoans.setAdapter(adapter);
+                lvActiveLoans.setOnItemClickListener(getClickedActiveLoan());
                 lvPendingLoans = findViewById(R.id.id_lv_pendingLoans);
                 PendingLoanRequestAdapter adapterPending = new PendingLoanRequestAdapter(getApplicationContext(), R.layout.lv_pending_loan_item, pendingLoans, getLayoutInflater());
                 lvPendingLoans.setAdapter(adapterPending);
+                lvPendingLoans.setOnItemClickListener(getClickedPendingLoan());
+            }
+        };
+    }
+
+    private AdapterView.OnItemClickListener getClickedPendingLoan() {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog dialog = new AlertDialog.Builder(HomePageActivity.this)
+                        .setTitle(R.string.dialog_pending_title)
+                        .setMessage(R.string.dialog_pending_message)
+                        .setPositiveButton(R.string.dialog_yes_label, getPositivePendingDialogEvent())
+                        .setNegativeButton(R.string.dialog_no_label, getNegativeDialogEvent())
+                        .create();
+                dialog.show();
+            }
+        };
+    }
+
+    private DialogInterface.OnClickListener getNegativeDialogEvent() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        };
+    }
+
+
+    private DialogInterface.OnClickListener getPositivePendingDialogEvent() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+//                Intent intent = new Intent(getApplicationContext(), ChartActivity.class);
+//                intent.putExtra(ChartActivity.ACCOUNTS_KEY, (Serializable) bankAccounts);
+//                startActivity(intent);
+            }
+        };
+    }
+
+    private AdapterView.OnItemClickListener getClickedActiveLoan() {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             }
         };
     }

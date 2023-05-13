@@ -46,6 +46,11 @@
 
     <string name="lv_row_item_default_value">-</string>
     <string name="period">Period:</string>
+    <string name="dialog_pending_title">Set Agent Appointment</string>
+    <string name="dialog_pending_message">To finalise this loan request, you have to set up a meeting with an agent. Continue?</string>
+    <string name="dialog_yes_label">Yes</string>
+    <string name="dialog_no_label">No</string>
+
 
 
 </resources>
