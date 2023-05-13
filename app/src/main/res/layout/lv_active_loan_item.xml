@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/id_active_img"
+        android:layout_width="84dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_idLoan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/active" />
+
+    <TextView
+        android:id="@+id/id_tv_idLoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/id_loan"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="305dp"
+        app:layout_constraintStart_toEndOf="@id/id_active_img"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_amountDue"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/id_tv_amountDue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amount_due"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="449dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_idLoan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_dueBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/due_by"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="605dp"
+        app:layout_constraintStart_toEndOf="@id/id_active_img"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_interestDue"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_idLoan"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_interestDue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/interest_due"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="512dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_dueBy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_amountDue"
+        android:layout_marginTop="16dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

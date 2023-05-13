@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/id_img_pending"
+        android:layout_width="84dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_idPendingLoan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pending" />
+
+
+    <TextView
+        android:id="@+id/id_tv_idPendingLoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/id_loan"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="295dp"
+        app:layout_constraintStart_toEndOf="@id/id_img_pending"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_creditTypePending"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_creditTypePending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/credit_type"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="496dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_idPendingLoan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_pendingAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_amount"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="168dp"
+        app:layout_constraintStart_toEndOf="@id/id_img_pending"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_pendingPeriod"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_idPendingLoan"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/id_tv_pendingPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/period"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="363dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_pendingAmount"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_pendingInterestRate"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_creditTypePending"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_pendingInterestRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/interest_rate"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="222dp"
+        app:layout_constraintStart_toEndOf="@id/id_tv_pendingPeriod"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_creditTypePending"
+        android:layout_marginTop="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

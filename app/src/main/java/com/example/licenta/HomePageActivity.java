@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -16,8 +17,11 @@ import com.example.licenta.async.Callback;
 import com.example.licenta.dto.Client;
 import com.example.licenta.dto.LoanRequest;
 import com.example.licenta.dto.User;
+import com.example.licenta.dto.adapter.LoanRequestAdapter;
+import com.example.licenta.dto.adapter.PendingLoanRequestAdapter;
 import com.example.licenta.services.ClientService;
 import com.example.licenta.services.LoanRequestService;
+import com.example.licenta.utils.RequestStatus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,9 +31,13 @@ public class HomePageActivity extends AppCompatActivity {
 
     private TextView tvHello;
     private Button btnNewLoan;
+    private ListView lvActiveLoans;
+    private ListView lvPendingLoans;
     private User user;
     private Client client = new Client();
     private List<LoanRequest> loanRequestList = new ArrayList<>();
+    private List<LoanRequest> activeLoans = new ArrayList<>();
+    private List<LoanRequest> pendingLoans = new ArrayList<>();
     private ClientService clientService;
     private LoanRequestService loanRequestService;
     private ActivityResultLauncher<Intent> launcher;
@@ -58,6 +66,22 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void runResultOnUiThread(List<LoanRequest> result) {
                 loanRequestList.addAll(result);
+                for (LoanRequest loan : loanRequestList
+                ) {
+                    if (loan.getStatus() == RequestStatus.APPROVED)
+                        activeLoans.add(loan);
+                    else {
+                        if (loan.getStatus() == RequestStatus.REQUIRES_AGENT_REVIEW) {
+                            pendingLoans.add(loan);
+                        }
+                    }
+                }
+                lvActiveLoans = findViewById(R.id.id_lv_activeLoans);
+                LoanRequestAdapter adapter = new LoanRequestAdapter(getApplicationContext(), R.layout.lv_active_loan_item, activeLoans, getLayoutInflater());
+                lvActiveLoans.setAdapter(adapter);
+                lvPendingLoans = findViewById(R.id.id_lv_pendingLoans);
+                PendingLoanRequestAdapter adapterPending = new PendingLoanRequestAdapter(getApplicationContext(), R.layout.lv_pending_loan_item, pendingLoans, getLayoutInflater());
+                lvPendingLoans.setAdapter(adapterPending);
             }
         };
     }
