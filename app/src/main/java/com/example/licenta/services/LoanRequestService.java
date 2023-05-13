@@ -49,4 +49,17 @@ public class LoanRequestService {
         };
         asyncTaskRunner.executeAsync(getAllOperation, activityThread);
     }
+
+    public void getListOfLoansByClientId(long clientId, Callback<List<LoanRequest>> activityThread) {
+        Callable<List<LoanRequest>> getLoanListByIdOperation = new Callable<List<LoanRequest>>() {
+            @Override
+            public List<LoanRequest> call() throws Exception {
+                if (clientId <= 0) {
+                    return null;
+                }
+                return loanRequestDao.getListOfLoansByClientId(clientId);
+            }
+        };
+        asyncTaskRunner.executeAsync(getLoanListByIdOperation, activityThread);
+    }
 }

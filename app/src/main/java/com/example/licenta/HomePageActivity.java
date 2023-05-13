@@ -17,8 +17,11 @@ import com.example.licenta.dto.Client;
 import com.example.licenta.dto.LoanRequest;
 import com.example.licenta.dto.User;
 import com.example.licenta.services.ClientService;
+import com.example.licenta.services.LoanRequestService;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -26,7 +29,9 @@ public class HomePageActivity extends AppCompatActivity {
     private Button btnNewLoan;
     private User user;
     private Client client = new Client();
+    private List<LoanRequest> loanRequestList = new ArrayList<>();
     private ClientService clientService;
+    private LoanRequestService loanRequestService;
     private ActivityResultLauncher<Intent> launcher;
     //    private Intent intent;
     public static final String USER_KEY = "userKey";
@@ -41,9 +46,20 @@ public class HomePageActivity extends AppCompatActivity {
         user = (User) getIntent().getSerializableExtra(USER_KEY);
         clientService = new ClientService(getApplicationContext());
         clientService.getClientByUserId(user.getUserId(), getClientCallback());
+        loanRequestService = new LoanRequestService(getApplicationContext());
+        loanRequestService.getListOfLoansByClientId(user.getUserId(), getLoanListCallback());
         setContentView(R.layout.activity_home_page);
         initComponents();
         launcher = getLauncher();
+    }
+
+    private Callback<List<LoanRequest>> getLoanListCallback() {
+        return new Callback<List<LoanRequest>>() {
+            @Override
+            public void runResultOnUiThread(List<LoanRequest> result) {
+                loanRequestList.addAll(result);
+            }
+        };
     }
 
     private Callback<Client> getClientCallback() {

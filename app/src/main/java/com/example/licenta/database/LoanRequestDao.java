@@ -15,4 +15,7 @@ public interface LoanRequestDao {
 
     @Query("select * from loan_request")
     List<LoanRequest> getAll();
+
+    @Query("SELECT * FROM loan_request WHERE client_id = :clientId")
+    List<LoanRequest> getListOfLoansByClientId(long clientId);
 }
