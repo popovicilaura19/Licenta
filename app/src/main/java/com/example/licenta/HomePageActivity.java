@@ -94,7 +94,7 @@ public class HomePageActivity extends AppCompatActivity {
         return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedPendingLoanRequest=loanRequestList.get(position);
+                selectedPendingLoanRequest=pendingLoans.get(position);
                 AlertDialog dialog = new AlertDialog.Builder(HomePageActivity.this)
                         .setTitle(R.string.dialog_pending_title)
                         .setMessage(R.string.dialog_pending_message)
