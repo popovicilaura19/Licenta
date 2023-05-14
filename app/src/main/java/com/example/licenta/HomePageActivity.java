@@ -44,7 +44,6 @@ public class HomePageActivity extends AppCompatActivity {
     private ClientService clientService;
     private LoanRequestService loanRequestService;
     private ActivityResultLauncher<Intent> launcher;
-    //    private Intent intent;
     public static final String USER_KEY = "userKey";
     public static final String CLIENT_KEY = "clientKey";
 
@@ -119,7 +118,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(getApplicationContext(), AgentAppointmentActivity.class);
-//                intent.putExtra(Ag.ACCOUNTS_KEY, (Serializable) bankAccounts);
+                intent.putExtra(CLIENT_KEY, client);
                 startActivity(intent);
             }
         };

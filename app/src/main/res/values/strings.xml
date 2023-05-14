@@ -33,6 +33,8 @@
     <string name="amount_due">Amount Due: </string>
     <string name="due_by">Due By: </string>
     <string name="interest_due">Interest Due: </string>
+    <string name="appointment_scheduled">Your meeting was scheduled successfully! View all current appointments in My appointments section. </string>
+
 
     <string-array name="creditPeriod">
         <item>12</item>
@@ -52,6 +54,11 @@
     <string name="dialog_no_label">No</string>
     <string name="fill_in_the_details_for_your_meeting_with_our_agent">Fill in the details for your meeting with our agent!</string>
     <string name="set_meeting">Set Meeting</string>
+    <string name="select_a_convenient_date_for_your_appointment">Select a convenient date for your appointment:</string>
+    <string name="select_a_time_for_your_meeting">Select a time for your meeting:</string>
+    <string name="time">Time</string>
+    <string name="choose_a_location">Choose a location:</string>
+    <string name="choose_an_agent">Choose an agent:</string>
 
 
 </resources>

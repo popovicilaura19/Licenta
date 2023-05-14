@@ -16,11 +16,122 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="64dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-condensed"
         android:textStyle="bold"
         android:textColor="@color/light_green"
         android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/id_select_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_a_convenient_date_for_your_appointment"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="147dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_agentMeeting"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:textColor="@color/dark_green"
+        android:textSize="16sp"/>
+
+    <CalendarView
+        android:id="@+id/id_calendar_meeting"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="214dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_select_date" />
+
+
+    <TextView
+        android:id="@+id/id_tv_select_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_a_time_for_your_meeting"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="458dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_calendar_meeting"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:textColor="@color/dark_green"
+        android:textSize="16sp"/>
+
+
+    <EditText
+        android:id="@+id/id_edit_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="time"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="532dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_select_time"
+        android:layout_marginTop="8dp"
+        android:hint="@string/time"/>
+
+    <TextView
+        android:id="@+id/id_tv_locationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_a_location"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="511dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_edit_time"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:textColor="@color/dark_green"
+        android:textSize="16sp"/>
+
+
+    <Spinner
+        android:id="@+id/id_spn_locationName"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="483dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_locationName"/>
+
+    <TextView
+        android:id="@+id/id_tv_agentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_an_agent"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="519dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_spn_locationName"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:textColor="@color/dark_green"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+
+    <Spinner
+        android:id="@+id/id_spn_agentName"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        android:layout_marginTop="16dp"
+        tools:layout_editor_absoluteY="383dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_agentName"/>
 
     <Button
         android:id="@+id/id_btn_setMeeting"
@@ -32,7 +143,7 @@
         app:layout_constraintStart_toEndOf="@id/id_btn_cancelMeeting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="64dp"/>
+        android:layout_marginBottom="32dp"/>
 
     <Button
         android:id="@+id/id_btn_cancelMeeting"
@@ -44,5 +155,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/id_btn_setMeeting"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="64dp"/>
+        android:layout_marginBottom="32dp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
