@@ -15,6 +15,8 @@ public class Appointment implements Serializable {
     private long appointmentId;
     @ColumnInfo(name = "client_id")
     private long clientId;
+    @ColumnInfo(name = "request_id")
+    private long requestId;
     @ColumnInfo(name = "agentName")
     private String agentName;
     @ColumnInfo(name = "dayOfMeeting")
@@ -28,9 +30,10 @@ public class Appointment implements Serializable {
     @ColumnInfo(name = "locationName")
     private String locationName;
 
-    public Appointment(long appointmentId, long clientId, String agentName, int dayOfMeeting, int monthOfMeeting, int yearOfMeeting, String time, String locationName) {
+    public Appointment(long appointmentId,long clientId, long requestId, String agentName, int dayOfMeeting, int monthOfMeeting, int yearOfMeeting, String time, String locationName) {
         this.appointmentId = appointmentId;
-        this.clientId = clientId;
+        this.clientId=clientId;
+        this.requestId = requestId;
         this.agentName = agentName;
         this.dayOfMeeting = dayOfMeeting;
         this.monthOfMeeting = monthOfMeeting;
@@ -40,7 +43,16 @@ public class Appointment implements Serializable {
     }
 
     @Ignore
-    public Appointment(long clientId) {
+    public Appointment(long clientId, long requestId) {
+        this.clientId=clientId;
+        this.requestId = requestId;
+    }
+
+    public long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(long clientId) {
         this.clientId = clientId;
     }
 
@@ -52,12 +64,12 @@ public class Appointment implements Serializable {
         this.appointmentId = appointmentId;
     }
 
-    public long getClientId() {
-        return clientId;
+    public long getRequestId() {
+        return requestId;
     }
 
-    public void setClientId(long clientId) {
-        this.clientId = clientId;
+    public void setRequestId(long requestId) {
+        this.requestId = requestId;
     }
 
     public String getAgentName() {
@@ -113,6 +125,7 @@ public class Appointment implements Serializable {
         return "Appointment{" +
                 "appointmentId=" + appointmentId +
                 ", clientId=" + clientId +
+                ", requestId=" + requestId +
                 ", agentName='" + agentName + '\'' +
                 ", dayOfMeeting=" + dayOfMeeting +
                 ", monthOfMeeting=" + monthOfMeeting +

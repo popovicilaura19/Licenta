@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.licenta.async.Callback;
 import com.example.licenta.dto.Appointment;
-import com.example.licenta.dto.Client;
+import com.example.licenta.dto.LoanRequest;
 import com.example.licenta.services.AppointmentService;
 import com.example.licenta.utils.AgentName;
 import com.example.licenta.utils.LocationName;
@@ -33,9 +33,9 @@ public class AgentAppointmentActivity extends AppCompatActivity {
     private int monthSelected;
     private int yearSelected;
     private Appointment appointment;
-    private Client client;
+    private LoanRequest loanRequest;
     private AppointmentService appointmentService;
-    public static final String CLIENT_KEY = "clientKey";
+    public static final String PENDING_REQUEST_KEY = "pendingRequestKey";
 
 
     @Override
@@ -46,8 +46,8 @@ public class AgentAppointmentActivity extends AppCompatActivity {
         cancelIntent = getIntent();
         appointmentIntent = getIntent();
         initComponents();
-        client = (Client) getIntent().getSerializableExtra(CLIENT_KEY);
-        appointment = new Appointment(client.getId());
+        loanRequest = (LoanRequest) getIntent().getSerializableExtra(PENDING_REQUEST_KEY);
+        appointment = new Appointment(loanRequest.getClientId(), loanRequest.getRequestId());
         appointmentService = new AppointmentService(getApplicationContext());
     }
 

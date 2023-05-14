@@ -46,6 +46,8 @@ public class HomePageActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcher;
     public static final String USER_KEY = "userKey";
     public static final String CLIENT_KEY = "clientKey";
+    public static final String PENDING_REQUEST_KEY = "pendingRequestKey";
+    private LoanRequest selectedPendingLoanRequest;
 
 
     @Override
@@ -92,6 +94,7 @@ public class HomePageActivity extends AppCompatActivity {
         return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedPendingLoanRequest=loanRequestList.get(position);
                 AlertDialog dialog = new AlertDialog.Builder(HomePageActivity.this)
                         .setTitle(R.string.dialog_pending_title)
                         .setMessage(R.string.dialog_pending_message)
@@ -118,7 +121,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(getApplicationContext(), AgentAppointmentActivity.class);
-                intent.putExtra(CLIENT_KEY, client);
+                intent.putExtra(PENDING_REQUEST_KEY, selectedPendingLoanRequest);
                 startActivity(intent);
             }
         };
