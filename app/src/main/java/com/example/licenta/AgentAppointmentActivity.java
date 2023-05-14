@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.licenta.async.Callback;
@@ -53,6 +54,7 @@ public class AgentAppointmentActivity extends AppCompatActivity {
 
     private void initComponents() {
         calendarView = findViewById(R.id.id_calendar_meeting);
+        calendarView.setOnDateChangeListener(getMeetingSelectedDateListener());
         time = findViewById(R.id.id_edit_time);
         spnLocation = findViewById(R.id.id_spn_locationName);
         ArrayAdapter<LocationName> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
@@ -66,6 +68,17 @@ public class AgentAppointmentActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(cancelMeetingEventListener());
         btnSetMeeting = findViewById(R.id.id_btn_setMeeting);
         btnSetMeeting.setOnClickListener(setMeetingEventListener());
+    }
+
+    private CalendarView.OnDateChangeListener getMeetingSelectedDateListener() {
+        return new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                daySelected = dayOfMonth;
+                monthSelected = month;
+                yearSelected = year;
+            }
+        };
     }
 
     private View.OnClickListener setMeetingEventListener() {
@@ -107,16 +120,6 @@ public class AgentAppointmentActivity extends AppCompatActivity {
     }
 
     private boolean isValid() {
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month,
-                                            int dayOfMonth) {
-                daySelected = dayOfMonth;
-                monthSelected = month;
-                yearSelected = year;
-            }
-        });
         if (time.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(),
                             R.string.sign_in_form_error,
