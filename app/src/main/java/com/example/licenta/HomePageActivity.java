@@ -4,16 +4,20 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.licenta.async.Callback;
@@ -63,6 +67,32 @@ public class HomePageActivity extends AppCompatActivity {
         launcher = getLauncher();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(
+                R.menu.main_menu,
+                menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.id_item_requestHistory) {
+            Toast.makeText(getApplicationContext(),
+                            R.string.invalid_credentials,
+                            Toast.LENGTH_LONG)
+                    .show();
+        } else {
+            if (item.getItemId() == R.id.id_item_appointmentHistory) {
+                Intent intent = new Intent(getApplicationContext(), AppointmentHistoryActivity.class);
+                intent.putExtra(CLIENT_KEY, client);
+                startActivity(intent);
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private Callback<List<LoanRequest>> getLoanListCallback() {
         return new Callback<List<LoanRequest>>() {
             @Override
@@ -94,7 +124,7 @@ public class HomePageActivity extends AppCompatActivity {
         return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedPendingLoanRequest=pendingLoans.get(position);
+                selectedPendingLoanRequest = pendingLoans.get(position);
                 AlertDialog dialog = new AlertDialog.Builder(HomePageActivity.this)
                         .setTitle(R.string.dialog_pending_title)
                         .setMessage(R.string.dialog_pending_message)

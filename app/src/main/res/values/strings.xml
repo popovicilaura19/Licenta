@@ -59,6 +59,14 @@
     <string name="time">Time</string>
     <string name="choose_a_location">Choose a location:</string>
     <string name="choose_an_agent">Choose an agent:</string>
+    <string name="loan_requests_history">Loan Requests History</string>
+    <string name="appointment_history">Appointment History</string>
+    <string name="appointment_id">Appointment Id: </string>
+    <string name="day">Day:</string>
+    <string name="month">Month:</string>
+    <string name="year">Year:</string>
+    <string name="timeAppointment">Time:</string>
+    <string name="location">Location:</string>
 
 
 </resources>
