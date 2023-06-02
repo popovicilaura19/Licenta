@@ -86,6 +86,9 @@
     <string name="let_s_talk_about_your_financial_situation_are_you_able_to_save_up_at_least_20_of_your_income_each_month">Let\'s talk about your financial situation. Are you able to save up at least 20% of your income each month?</string>
     <string name="yes_sometimes_even_more_although_it_is_pretty_hard">Yes, I always try to, although it is pretty hard.</string>
     <string name="not_really_the_economic_situation_right_now_and_my_income_do_not_allow_me_to">Not really, the economic situation right now and my income do not allow me to.</string>
+    <string name="is_the_amount_of_money_you_are_looking_for_over_50_000">Is the amount of money you are looking for over 50.000$?</string>
+    <string name="yes_it_is">Yes, it is.</string>
+    <string name="no_i_need_less">No, I need less.</string>
 
 
 </resources>
