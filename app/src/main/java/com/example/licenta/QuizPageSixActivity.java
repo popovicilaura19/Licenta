@@ -9,11 +9,11 @@ import android.widget.CheckBox;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class QuizPageFiveActivity extends AppCompatActivity {
+public class QuizPageSixActivity extends AppCompatActivity {
 
     private CheckBox checkedYes;
     private CheckBox checkedNo;
-    private Button btnNext;
+    private Button btnGetResults;
 
     private Intent intent;
 
@@ -24,24 +24,22 @@ public class QuizPageFiveActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_page_five);
+        setContentView(R.layout.activity_quiz_page_six);
 
         intent = getIntent();
         initComponents();
     }
 
     private void initComponents() {
-        btnNext = findViewById(R.id.id_btn_quizFiveNext);
-        btnNext.setOnClickListener(goToPageSixOfQuizEventListener());
+        btnGetResults = findViewById(R.id.id_btn_getResults);
+        btnGetResults.setOnClickListener(getResultsOfQuizEventListener());
     }
 
-    private View.OnClickListener goToPageSixOfQuizEventListener() {
+    private View.OnClickListener getResultsOfQuizEventListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), QuizPageSixActivity.class);
-//                intent.putExtra(QUIZ_KEY, client);
-                startActivity(intent);
+
             }
         };
     }

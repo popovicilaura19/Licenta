@@ -89,6 +89,10 @@
     <string name="is_the_amount_of_money_you_are_looking_for_over_50_000">Is the amount of money you are looking for over 50.000$?</string>
     <string name="yes_it_is">Yes, it is.</string>
     <string name="no_i_need_less">No, I need less.</string>
+    <string name="lastly_do_you_plan_on_using_this_money_on_multiple_things_or_do_you_have_just_one_big_investment_in_mind">Lastly, do you plan on using this money on multiple things or do you have just one big investment in mind?</string>
+    <string name="i_have_a_couple_of_things_in_mind_that_i_would_like_to_buy">I have a couple of things in mind that I would like to buy.</string>
+    <string name="i_have_just_one_big_investment_in_mind_for_now">I have just one big investment in mind for now.</string>
+    <string name="tell_me_my_results">Tell me my results!</string>
 
 
 </resources>
