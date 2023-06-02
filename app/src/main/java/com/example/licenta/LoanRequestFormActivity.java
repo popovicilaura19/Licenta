@@ -1,5 +1,7 @@
 package com.example.licenta;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +30,7 @@ public class LoanRequestFormActivity extends AppCompatActivity {
     private Spinner spnPeriod;
     private TextInputEditText tietInterestRate;
     private Button btnNext;
+    private Button btnNeedHelp;
 
     private ActivityResultLauncher<Intent> launcher;
 
@@ -78,6 +81,45 @@ public class LoanRequestFormActivity extends AppCompatActivity {
         tietInterestRate = findViewById(R.id.id_tiet_interest_rate);
         btnNext = findViewById(R.id.id_btn_next);
         btnNext.setOnClickListener(nextEventListener());
+        btnNeedHelp = findViewById(R.id.id_btn_needHelp);
+        btnNeedHelp.setOnClickListener(onNeedHelpEventListener());
+    }
+
+    private View.OnClickListener onNeedHelpEventListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog quizDialog = new AlertDialog.Builder(LoanRequestFormActivity.this)
+                        .setTitle(R.string.dialog_quiz_title)
+                        .setMessage(R.string.dialog_quiz_message)
+                        .setPositiveButton(R.string.dialog_quiz_yes, getPositiveQuizDialogEvent())
+                        .setNegativeButton(R.string.dialog_quiz_no, getNegativeQuizDialogEvent())
+                        .create();
+                quizDialog.show();
+            }
+        };
+    }
+
+    private DialogInterface.OnClickListener getNegativeQuizDialogEvent() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        };
+    }
+
+    private DialogInterface.OnClickListener getPositiveQuizDialogEvent() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getApplicationContext(), QuizPageOneActivity.class);
+                intent.putExtra(CLIENT_KEY, client);
+                setResult(RESULT_OK, intent);
+                finish();
+                startActivity(intent);
+            }
+        };
     }
 
     private View.OnClickListener nextEventListener() {
