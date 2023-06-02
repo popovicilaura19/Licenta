@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_checkBox_yes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizPageOneActivity">
+
+    <TextView
+        android:id="@+id/id_tv_vacanteQuestion"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/do_you_like_to_travel_overseas_for_at_least_3_times_a_year"
+        android:textColor="@color/dark_green"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <CheckedTextView
+        android:id="@+id/id_checked_vacanteYes"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/yes_love_to_create_new_experiences"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/id_checked_vacanteNo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_vacanteQuestion"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="316dp" />
+
+    <CheckedTextView
+        android:id="@+id/id_checked_vacanteNo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/no_i_don_t_really_like_to_spend_my_money_on_that_many_vacations"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/id_checked_vacanteYes"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_vacanteQuestion"
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="308dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="228dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_checkbox_no"
+        app:layout_constraintTop_toBottomOf="@id/id_checked_vacanteYes"
+        android:layout_marginTop="32dp"/>
+
+    <CheckBox
+        android:id="@+id/id_checkbox_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="219dp"
+        app:layout_constraintStart_toEndOf="@id/checkBox_yes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_checked_vacanteNo"
+        android:layout_marginTop="32dp"/>
+
+
+    <ImageView
+        android:id="@+id/id_img_travel"
+        android:layout_width="176dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toStartOf="@id/id_img_noVacations"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkBox_yes"
+        app:srcCompat="@drawable/travel" />
+
+    <ImageView
+        android:id="@+id/id_img_noVacations"
+        android:layout_width="176dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/id_img_travel"
+        app:layout_constraintTop_toBottomOf="@id/id_checkbox_no"
+        app:srcCompat="@drawable/no_vacations" />
+
+
+    <Button
+        android:id="@+id/id_btn_quizOneNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="586dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

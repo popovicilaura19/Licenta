@@ -6,4 +6,10 @@
     <item
         android:id="@+id/id_item_appointmentHistory"
         android:title="@string/appointment_history" />
+    <item
+        android:id="@+id/id_item_predictions"
+        android:title="@string/predictions" />
+    <item
+        android:id="@+id/it_item_logOut"
+        android:title="@string/log_out" />
 </menu>

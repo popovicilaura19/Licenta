@@ -52,6 +52,11 @@
     <string name="dialog_pending_message">To finalise this loan request, you have to set up a meeting with an agent. Continue?</string>
     <string name="dialog_yes_label">Yes</string>
     <string name="dialog_no_label">No</string>
+    <string name="dialog_quiz_title">Take Our Loan Quiz To Help You Decide!</string>
+    <string name="dialog_quiz_message">We have created a unique quiz with a couple of questions to make us understand some more
+    things about you. At the end of the quiz we will tell you what we think may be the best approach to take one of our credit loans. Continue?</string>
+    <string name="dialog_quiz_yes">Yes, could use the help!</string>
+    <string name="dialog_quiz_no">No, will take the quiz later.</string>
     <string name="fill_in_the_details_for_your_meeting_with_our_agent">Fill in the details for your meeting with our agent!</string>
     <string name="set_meeting">Set Meeting</string>
     <string name="select_a_convenient_date_for_your_appointment">Select a convenient date for your appointment:</string>
@@ -61,12 +66,17 @@
     <string name="choose_an_agent">Choose an agent:</string>
     <string name="loan_requests_history">Loan Requests History</string>
     <string name="appointment_history">Appointment History</string>
+    <string name="predictions">View Predictions</string>
+    <string name="log_out">Log Out</string>
     <string name="appointment_id">Appointment Id: </string>
     <string name="day">Day:</string>
     <string name="month">Month:</string>
     <string name="year">Year:</string>
     <string name="timeAppointment">Time:</string>
     <string name="location">Location:</string>
+    <string name="do_you_like_to_travel_overseas_for_at_least_3_times_a_year">Do you like to travel overseas for at least 3 times a year?</string>
+    <string name="yes_love_to_create_new_experiences">Yes, love to create new experiences!</string>
+    <string name="no_i_don_t_really_like_to_spend_my_money_on_that_many_vacations">No, I don\'t really like to spend my money on that many vacations.</string>
 
 
 </resources>

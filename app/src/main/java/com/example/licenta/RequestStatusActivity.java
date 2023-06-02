@@ -88,5 +88,8 @@ public class RequestStatusActivity extends AppCompatActivity {
         } else {
             loanRequest.setStatus(RequestStatus.REQUIRES_AGENT_REVIEW);
         }
+        if(loanRequest.getCreditType()==CreditType.STUDENT_LOAN && loanRequest.getOccupation()!=Occupation.STUDENT){
+            loanRequest.setStatus(RequestStatus.REJECTED);
+        }
     }
 }

@@ -38,6 +38,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private TextView tvHello;
     private Button btnNewLoan;
+    private Button btnLoanQuiz;
     private ListView lvActiveLoans;
     private ListView lvPendingLoans;
     private User user;
@@ -51,6 +52,7 @@ public class HomePageActivity extends AppCompatActivity {
     public static final String USER_KEY = "userKey";
     public static final String CLIENT_KEY = "clientKey";
     public static final String PENDING_REQUEST_KEY = "pendingRequestKey";
+    public static final String QUIZ_KEY = "quizKey";
     private LoanRequest selectedPendingLoanRequest;
 
 
@@ -207,6 +209,43 @@ public class HomePageActivity extends AppCompatActivity {
     private void initComponents() {
         btnNewLoan = findViewById(R.id.id_btn_newLoanRequest);
         btnNewLoan.setOnClickListener(newLoanRequestEventListener());
+        btnLoanQuiz = findViewById(R.id.id_btn_helper);
+        btnLoanQuiz.setOnClickListener(loanQuizEventListener());
+    }
+
+    private View.OnClickListener loanQuizEventListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog quizDialog = new AlertDialog.Builder(HomePageActivity.this)
+                        .setTitle(R.string.dialog_quiz_title)
+                        .setMessage(R.string.dialog_quiz_message)
+                        .setPositiveButton(R.string.dialog_quiz_yes, getPositiveQuizDialogEvent())
+                        .setNegativeButton(R.string.dialog_quiz_no, getNegativeQuizDialogEvent())
+                        .create();
+                quizDialog.show();
+            }
+        };
+    }
+
+    private DialogInterface.OnClickListener getNegativeQuizDialogEvent() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        };
+    }
+
+    private DialogInterface.OnClickListener getPositiveQuizDialogEvent() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getApplicationContext(), QuizPageOneActivity.class);
+                intent.putExtra(QUIZ_KEY, client);
+                startActivity(intent);
+            }
+        };
     }
 
     private View.OnClickListener newLoanRequestEventListener() {
