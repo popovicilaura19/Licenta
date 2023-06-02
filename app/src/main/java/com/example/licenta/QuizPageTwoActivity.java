@@ -9,16 +9,13 @@ import android.widget.CheckBox;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.licenta.dto.Client;
-
-public class QuizPageOneActivity extends AppCompatActivity {
+public class QuizPageTwoActivity extends AppCompatActivity {
 
     private CheckBox checkedYes;
     private CheckBox checkedNo;
     private Button btnNext;
 
     private Intent intent;
-    private Client client;
 
     private ActivityResultLauncher<Intent> launcher;
 
@@ -27,27 +24,22 @@ public class QuizPageOneActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_page_one);
+        setContentView(R.layout.activity_quiz_page_two);
 
         intent = getIntent();
-        client = (Client) getIntent().getSerializableExtra(QUIZ_KEY);
-//        appointmentService = new AppointmentService(getApplicationContext());
-//        appointmentService.getAll(getAllCallback());
         initComponents();
     }
 
     private void initComponents() {
-        btnNext = findViewById(R.id.id_btn_quizOneNext);
-        btnNext.setOnClickListener(goToPageTwoOfQuizEventListener());
+        btnNext = findViewById(R.id.id_btn_quizTwo_next);
+        btnNext.setOnClickListener(goToPageThreeOfQuizEventListener());
     }
 
-    private View.OnClickListener goToPageTwoOfQuizEventListener() {
+    private View.OnClickListener goToPageThreeOfQuizEventListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), QuizPageTwoActivity.class);
-//                intent.putExtra(QUIZ_KEY, client);
-                startActivity(intent);
+
             }
         };
     }

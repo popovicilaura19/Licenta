@@ -77,6 +77,9 @@
     <string name="do_you_like_to_travel_overseas_for_at_least_3_times_a_year">Do you like to travel overseas for at least 3 times a year?</string>
     <string name="yes_love_to_create_new_experiences">Yes, love to create new experiences!</string>
     <string name="no_i_don_t_really_like_to_spend_my_money_on_that_many_vacations">No, I don\'t really like to spend my money on that many vacations.</string>
+    <string name="do_you_enjoy_spending_money_on_material_items_sometimes_even_luxury_goods">Do you enjoy spending money on material items, sometimes even luxury goods?</string>
+    <string name="yes_i_like_to_indulge_and_have_fun">Yes, I like to indulge and have fun!</string>
+    <string name="no_i_usually_save_up_for_investing_money">No, I usually save up for investing money.</string>
 
 
 </resources>
