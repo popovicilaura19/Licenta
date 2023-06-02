@@ -83,6 +83,9 @@
     <string name="are_you_a_student_right_now_and_in_need_of_some_money_until_you_graduate">Are you a student right now and in need of some money until you graduate?</string>
     <string name="yes_i_do_not_have_the_time_to_work_but_can_t_keep_on_asking_for_money_from_my_parents">Yes, I can\'t keep on asking for money from my parents.</string>
     <string name="no_i_am_not">No, I am not.</string>
+    <string name="let_s_talk_about_your_financial_situation_are_you_able_to_save_up_at_least_20_of_your_income_each_month">Let\'s talk about your financial situation. Are you able to save up at least 20% of your income each month?</string>
+    <string name="yes_sometimes_even_more_although_it_is_pretty_hard">Yes, I always try to, although it is pretty hard.</string>
+    <string name="not_really_the_economic_situation_right_now_and_my_income_do_not_allow_me_to">Not really, the economic situation right now and my income do not allow me to.</string>
 
 
 </resources>
