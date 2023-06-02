@@ -39,7 +39,11 @@ public class QuizPageSixActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), QuizResultsActivity.class);
+//                intent.putExtra(QUIZ_KEY, client);
+                setResult(RESULT_OK, intent);
+                finish();
+                startActivity(intent);
             }
         };
     }

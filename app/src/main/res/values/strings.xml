@@ -93,6 +93,8 @@
     <string name="i_have_a_couple_of_things_in_mind_that_i_would_like_to_buy">I have a couple of things in mind that I would like to buy.</string>
     <string name="i_have_just_one_big_investment_in_mind_for_now">I have just one big investment in mind for now.</string>
     <string name="tell_me_my_results">Tell me my results!</string>
+    <string name="here_are_your_test_results_based_on_the_answears_provided_for_a_more_detailed_analysis_please_contact_us_for_a_visit_with_one_of_our_agents">Here are your test results based on the answears provided! For a more detailed analysis, please contact us for a visit with one of our agents.</string>
+    <string name="return_home">Return home</string>
 
 
 </resources>

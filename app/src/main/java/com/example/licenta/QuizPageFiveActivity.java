@@ -41,6 +41,8 @@ public class QuizPageFiveActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), QuizPageSixActivity.class);
 //                intent.putExtra(QUIZ_KEY, client);
+                setResult(RESULT_OK, intent);
+                finish();
                 startActivity(intent);
             }
         };
