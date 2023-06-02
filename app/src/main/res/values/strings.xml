@@ -80,6 +80,9 @@
     <string name="do_you_enjoy_spending_money_on_material_items_sometimes_even_luxury_goods">Do you enjoy spending money on material items, sometimes even luxury goods?</string>
     <string name="yes_i_like_to_indulge_and_have_fun">Yes, I like to indulge and have fun!</string>
     <string name="no_i_usually_save_up_for_investing_money">No, I usually save up for investing money.</string>
+    <string name="are_you_a_student_right_now_and_in_need_of_some_money_until_you_graduate">Are you a student right now and in need of some money until you graduate?</string>
+    <string name="yes_i_do_not_have_the_time_to_work_but_can_t_keep_on_asking_for_money_from_my_parents">Yes, I can\'t keep on asking for money from my parents.</string>
+    <string name="no_i_am_not">No, I am not.</string>
 
 
 </resources>

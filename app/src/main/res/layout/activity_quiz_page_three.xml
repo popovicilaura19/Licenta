@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizPageThreeActivity">
+
+    <TextView
+        android:id="@+id/id_tv_quizQuestion_student"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/are_you_a_student_right_now_and_in_need_of_some_money_until_you_graduate"
+        android:textColor="@color/dark_green"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="116dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/id_tv_yesStudent"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/yes_i_do_not_have_the_time_to_work_but_can_t_keep_on_asking_for_money_from_my_parents"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_tv_noStudent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_quizQuestion_student"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="263dp" />
+
+    <TextView
+        android:id="@+id/id_tv_noStudent"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="32dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/no_i_am_not"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/id_tv_yesStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_quizQuestion_student"
+        tools:layout_editor_absoluteX="267dp"
+        tools:layout_editor_absoluteY="244dp" />
+
+    <CheckBox
+        android:id="@+id/id_checkbox_yesStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_checkbox_noStudent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_yesStudent"
+        android:layout_marginTop="32dp"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="326dp" />
+
+    <CheckBox
+        android:id="@+id/id_checkbox_noStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="100dp"
+        app:layout_constraintStart_toEndOf="@id/id_checkbox_yesStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_yesStudent"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="343dp" />
+
+    <ImageView
+        android:id="@+id/id_img_student"
+        android:layout_width="176dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="32dp"
+        app:srcCompat="@drawable/student"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="325dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/id_img_adult"
+        app:layout_constraintTop_toBottomOf="@id/id_checkbox_yesStudent"/>
+
+    <ImageView
+        android:id="@+id/id_img_adult"
+        android:layout_width="176dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="32dp"
+        app:srcCompat="@drawable/adult"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="296dp"
+        app:layout_constraintStart_toEndOf="@id/id_img_student"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_checkbox_noStudent"/>
+
+    <Button
+        android:id="@+id/id_btn_quizThreeNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="@string/next"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="535dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
