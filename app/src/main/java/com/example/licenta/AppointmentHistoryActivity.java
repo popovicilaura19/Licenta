@@ -44,7 +44,10 @@ public class AppointmentHistoryActivity extends AppCompatActivity {
         return new Callback<List<Appointment>>() {
             @Override
             public void runResultOnUiThread(List<Appointment> result) {
-                appointmentList.addAll(result);
+                for (int i = 0; i < result.size(); i++) {
+                    if (result.get(i).getClientId() == client.getId())
+                        appointmentList.add(result.get(i));
+                }
                 lvAppoitments = findViewById(R.id.id_lv_appointments);
                 AppointmentAdapter adapter = new AppointmentAdapter(getApplicationContext(), R.layout.lv_appointment_item, appointmentList, getLayoutInflater());
                 lvAppoitments.setAdapter(adapter);
