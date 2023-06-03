@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -21,6 +22,7 @@ public class RequestStatusActivity extends AppCompatActivity {
 
     private TextView tvStatus;
     private Button btnGoHome;
+    private ImageView imgStatus;
     private ActivityResultLauncher<Intent> launcherGoHome;
     private Intent intent;
     public static final String LOAN_KEY = "loanKey";
@@ -47,6 +49,12 @@ public class RequestStatusActivity extends AppCompatActivity {
             public void runResultOnUiThread(LoanRequest result) {
                 tvStatus = findViewById(R.id.id_tv_status);
                 tvStatus.append(" " + result.getStatus().toString() + "!");
+                if (result.getStatus() == RequestStatus.REQUIRES_AGENT_REVIEW)
+                    imgStatus.setImageResource(R.drawable.fingers_crossed);
+                else {
+                    if (result.getStatus() == RequestStatus.REJECTED)
+                        imgStatus.setImageResource(R.drawable.sorry);
+                }
             }
         };
     }
@@ -54,6 +62,7 @@ public class RequestStatusActivity extends AppCompatActivity {
     private void initComponents() {
         btnGoHome = findViewById(R.id.id_btn_goHome);
         btnGoHome.setOnClickListener(goHomeEventListener());
+        imgStatus = findViewById(R.id.id_img_requestStatus);
     }
 
     private View.OnClickListener goHomeEventListener() {
