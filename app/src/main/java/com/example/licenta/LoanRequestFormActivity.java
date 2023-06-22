@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -69,20 +70,53 @@ public class LoanRequestFormActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
+        tietInterestRate = findViewById(R.id.id_tiet_interest_rate);
         spnCreditType = findViewById(R.id.id_spn_creditType);
         ArrayAdapter<CreditType> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
                 CreditType.values());
         spnCreditType.setAdapter(adapter1);
+        spnCreditType.setOnItemSelectedListener(getInterestRateValue());
         tietTotalAmount = findViewById(R.id.id_tiet_amount);
         spnPeriod = findViewById(R.id.id_spn_period);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.creditPeriod,
                 android.R.layout.simple_spinner_dropdown_item);
         spnPeriod.setAdapter(adapter2);
-        tietInterestRate = findViewById(R.id.id_tiet_interest_rate);
         btnNext = findViewById(R.id.id_btn_next);
         btnNext.setOnClickListener(nextEventListener());
         btnNeedHelp = findViewById(R.id.id_btn_needHelp);
         btnNeedHelp.setOnClickListener(onNeedHelpEventListener());
+    }
+
+    private AdapterView.OnItemSelectedListener getInterestRateValue() {
+        return new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                tietInterestRate.setText(" ");
+                tietInterestRate.append("" + setValueForInterestRateBasedOnCreditType());
+                tietInterestRate.setEnabled(false);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                tietInterestRate.setText(" ");
+                tietInterestRate.append("" + setValueForInterestRateBasedOnCreditType());
+                tietInterestRate.setEnabled(false);
+            }
+        };
+    }
+
+    public double setValueForInterestRateBasedOnCreditType() {
+        double interestRateByType;
+        if (spnCreditType.getSelectedItem().toString().equalsIgnoreCase("Student Loan")) {
+            interestRateByType = 2.5;
+        } else {
+            if (spnCreditType.getSelectedItem().toString().equalsIgnoreCase("House Loan")) {
+                interestRateByType = 4.5;
+            } else {
+                interestRateByType = 3.5;
+            }
+        }
+        return interestRateByType;
     }
 
     private View.OnClickListener onNeedHelpEventListener() {
@@ -142,8 +176,8 @@ public class LoanRequestFormActivity extends AppCompatActivity {
     private void createFromViews() {
         String creditType = spnCreditType.getSelectedItem().toString();
         long totalAmount = Long.parseLong(tietTotalAmount.getText().toString());
-        int period= Integer.parseInt(spnPeriod.getSelectedItem().toString());
-        float interestRate= Float.parseFloat(tietInterestRate.getText().toString());
+        int period = Integer.parseInt(spnPeriod.getSelectedItem().toString());
+        float interestRate = Float.parseFloat(tietInterestRate.getText().toString());
         loanRequest.setCreditType(CreditType.getType(creditType));
         loanRequest.setTotalAmount(totalAmount);
         loanRequest.setPeriod(period);
