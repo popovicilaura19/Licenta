@@ -102,6 +102,7 @@
     <string name="calculate">Calculate</string>
     <string name="your_monthly_rate_will_be">Your monthly rate will be:</string>
     <string name="this_value_was_calculated_for_an_interest_rate_of_value">This value was calculated for an interest rate of value</string>
+    <string name="credit_loan_monthly_rate_calculator">Credit Loan Monthly Rate Calculator</string>
 
 
 </resources>
