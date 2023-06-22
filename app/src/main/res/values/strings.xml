@@ -96,6 +96,12 @@
     <string name="here_are_your_test_results_based_on_the_answears_provided_for_a_more_detailed_analysis_please_contact_us_for_a_visit_with_one_of_our_agents">Here are your test results based on the answears provided! For a more detailed analysis, please contact us for a visit with one of our agents. Given your answers, we think the best credit solution for you is </string>
     <string name="return_home">Return home</string>
     <string name="this_credit_solution_would_work_best_for_you_given_its_maximum_value_its_interest_rate_and_your_current_financial_situation_of_course_you_can_still_choose_any_other_credit_that_you_think_would_suit_you_best_make_the_choice_once_you_are_ready_we_are_always_here_to_help_though">This credit solution would work best for you given its maximum value, its interest rate and your current financial situation! Of course, you can still choose any other credit that you think would suit you best! Make the choice once you are ready! We are always here to help though!</string>
+    <string name="select_a_credit_type">Select a credit type:</string>
+    <string name="select_the_desired_amount">Select the desired amount:</string>
+    <string name="select_the_credit_period_in_months">Select the credit period in months:</string>
+    <string name="calculate">Calculate</string>
+    <string name="your_monthly_rate_will_be">Your monthly rate will be:</string>
+    <string name="this_value_was_calculated_for_an_interest_rate_of_value">This value was calculated for an interest rate of value</string>
 
 
 </resources>

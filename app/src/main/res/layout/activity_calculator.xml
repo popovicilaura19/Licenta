@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculatorActivity">
+
+    <TextView
+        android:id="@+id/id_tv_calculatorCreditType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_a_credit_type"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="257dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="normal"
+        android:textColor="@color/dark_green"/>
+
+    <Spinner
+        android:id="@+id/id_spn_calculator"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="89dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_calculatorCreditType"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_calculatorAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_the_desired_amount"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="330dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_spn_calculator"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="normal"
+        android:textColor="@color/dark_green"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_til_calculatorAmount"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="442dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_calculatorAmount"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
+            android:id="@+id/id_tiet_calculatorAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/total_amount" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/id_tv_calculatorNrMonths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_the_credit_period_in_months"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="539dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_til_calculatorAmount"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="normal"
+        android:textColor="@color/dark_green"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_til_calculator_nrMonths"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_calculatorNrMonths"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="221dp"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
+            android:id="@+id/id_tiet_calculatoMonths"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/credit_period_number_of_months" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/id_btn_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate"
+        tools:layout_editor_absoluteX="434dp"
+        tools:layout_editor_absoluteY="773dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_til_calculator_nrMonths"
+        android:layout_marginTop="48dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_calculator_monthlyRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:layout_editor_absoluteX="345dp"
+        tools:layout_editor_absoluteY="1733dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_btn_calculate"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"
+        android:layout_marginTop="64dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_calculatorInterestRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:layout_editor_absoluteX="430dp"
+        tools:layout_editor_absoluteY="834dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_calculator_monthlyRate"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"/>
+
+
+    <Button
+        android:id="@+id/id_btn_calculator_goHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_home"
+        tools:layout_editor_absoluteX="414dp"
+        tools:layout_editor_absoluteY="1496dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="64dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

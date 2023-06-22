@@ -29,6 +29,7 @@ import com.example.licenta.dto.adapter.PendingLoanRequestAdapter;
 import com.example.licenta.services.ClientService;
 import com.example.licenta.services.LoanRequestService;
 import com.example.licenta.utils.RequestStatus;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class HomePageActivity extends AppCompatActivity {
     private TextView tvHello;
     private Button btnNewLoan;
     private Button btnLoanQuiz;
+    private FloatingActionButton fabCalculator;
     private ListView lvActiveLoans;
     private ListView lvPendingLoans;
     private User user;
@@ -211,6 +213,19 @@ public class HomePageActivity extends AppCompatActivity {
         btnNewLoan.setOnClickListener(newLoanRequestEventListener());
         btnLoanQuiz = findViewById(R.id.id_btn_helper);
         btnLoanQuiz.setOnClickListener(loanQuizEventListener());
+        fabCalculator = findViewById(R.id.id_fab_calculator);
+        fabCalculator.setOnClickListener(calculatorOnClickListener());
+    }
+
+    private View.OnClickListener calculatorOnClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
+                setResult(RESULT_OK, intent);
+                launcher.launch(intent);
+            }
+        };
     }
 
     private View.OnClickListener loanQuizEventListener() {

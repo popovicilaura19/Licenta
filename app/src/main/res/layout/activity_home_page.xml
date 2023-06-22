@@ -74,6 +74,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_tv_pendingLoans"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/id_fab_calculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/sym_action_call"
+        tools:layout_editor_absoluteX="292dp"
+        tools:layout_editor_absoluteY="524dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/lightest_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/id_btn_newLoanRequest"
+        android:focusable="true" />
+
     <Button
         android:id="@+id/id_btn_helper"
         android:layout_width="wrap_content"
