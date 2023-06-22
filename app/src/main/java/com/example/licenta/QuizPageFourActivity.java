@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.licenta.utils.QuizResponse;
+
 public class QuizPageFourActivity extends AppCompatActivity {
 
     private CheckBox checkedYes;
@@ -16,6 +18,7 @@ public class QuizPageFourActivity extends AppCompatActivity {
     private Button btnNext;
 
     private Intent intent;
+    private QuizResponse quizResponse;
 
     private ActivityResultLauncher<Intent> launcher;
 
@@ -29,9 +32,12 @@ public class QuizPageFourActivity extends AppCompatActivity {
 
         intent = getIntent();
         initComponents();
+        quizResponse = (QuizResponse) getIntent().getSerializableExtra(QUIZ_KEY);
     }
 
     private void initComponents() {
+        checkedYes = findViewById(R.id.id_checkbox_yesDebt);
+        checkedNo = findViewById(R.id.id_checkbox_noDebt);
         btnNext = findViewById(R.id.id_btn_quizFourNext);
         btnNext.setOnClickListener(goToPageFiveOfQuizEventListener());
     }
@@ -40,8 +46,15 @@ public class QuizPageFourActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (checkedYes.isChecked()) {
+                    quizResponse.setHaveEconomies(true);
+                } else {
+                    if (checkedNo.isChecked()) {
+                        quizResponse.setHaveEconomies(false);
+                    }
+                }
                 Intent intent = new Intent(getApplicationContext(), QuizPageFiveActivity.class);
-//                intent.putExtra(QUIZ_KEY, client);
+                intent.putExtra(QUIZ_KEY, quizResponse);
                 setResult(RESULT_OK, intent);
                 finish();
                 startActivity(intent);

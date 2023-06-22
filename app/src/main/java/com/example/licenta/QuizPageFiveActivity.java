@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.licenta.utils.QuizResponse;
+
 public class QuizPageFiveActivity extends AppCompatActivity {
 
     private CheckBox checkedYes;
@@ -16,6 +18,7 @@ public class QuizPageFiveActivity extends AppCompatActivity {
     private Button btnNext;
 
     private Intent intent;
+    private QuizResponse quizResponse;
 
     private ActivityResultLauncher<Intent> launcher;
 
@@ -28,9 +31,12 @@ public class QuizPageFiveActivity extends AppCompatActivity {
 
         intent = getIntent();
         initComponents();
+        quizResponse = (QuizResponse) getIntent().getSerializableExtra(QUIZ_KEY);
     }
 
     private void initComponents() {
+        checkedYes = findViewById(R.id.id_checkBox_yes_bigMoney);
+        checkedNo = findViewById(R.id.id_checkBox_no_bigMoney);
         btnNext = findViewById(R.id.id_btn_quizFiveNext);
         btnNext.setOnClickListener(goToPageSixOfQuizEventListener());
     }
@@ -39,8 +45,15 @@ public class QuizPageFiveActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (checkedYes.isChecked()) {
+                    quizResponse.setWantBigLoan(true);
+                } else {
+                    if (checkedNo.isChecked()) {
+                        quizResponse.setWantBigLoan(false);
+                    }
+                }
                 Intent intent = new Intent(getApplicationContext(), QuizPageSixActivity.class);
-//                intent.putExtra(QUIZ_KEY, client);
+                intent.putExtra(QUIZ_KEY, quizResponse);
                 setResult(RESULT_OK, intent);
                 finish();
                 startActivity(intent);

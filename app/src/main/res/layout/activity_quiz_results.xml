@@ -23,6 +23,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/id_tv_quizResultsMoreInfo"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/this_credit_solution_would_work_best_for_you_given_its_maximum_value_its_interest_rate_and_your_current_financial_situation_of_course_you_can_still_choose_any_other_credit_that_you_think_would_suit_you_best_make_the_choice_once_you_are_ready_we_are_always_here_to_help_though"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="329dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_hereAreResults"/>
+
     <Button
         android:id="@+id/id_btn_returnHome"
         android:layout_width="wrap_content"
@@ -34,4 +51,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

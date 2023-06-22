@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.licenta.utils.QuizResponse;
+
 public class QuizPageThreeActivity extends AppCompatActivity {
 
     private CheckBox checkedYes;
@@ -16,6 +18,7 @@ public class QuizPageThreeActivity extends AppCompatActivity {
     private Button btnNext;
 
     private Intent intent;
+    private QuizResponse quizResponse;
 
     private ActivityResultLauncher<Intent> launcher;
 
@@ -28,9 +31,12 @@ public class QuizPageThreeActivity extends AppCompatActivity {
 
         intent = getIntent();
         initComponents();
+        quizResponse = (QuizResponse) getIntent().getSerializableExtra(QUIZ_KEY);
     }
 
     private void initComponents() {
+        checkedYes = findViewById(R.id.id_checkbox_yesStudent);
+        checkedNo = findViewById(R.id.id_checkbox_noStudent);
         btnNext = findViewById(R.id.id_btn_quizThreeNext);
         btnNext.setOnClickListener(goToPageFourOfQuizEventListener());
     }
@@ -39,8 +45,15 @@ public class QuizPageThreeActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (checkedYes.isChecked()) {
+                    quizResponse.setStudent(true);
+                } else {
+                    if (checkedNo.isChecked()) {
+                        quizResponse.setStudent(false);
+                    }
+                }
                 Intent intent = new Intent(getApplicationContext(), QuizPageFourActivity.class);
-//                intent.putExtra(QUIZ_KEY, client);
+                intent.putExtra(QUIZ_KEY, quizResponse);
                 setResult(RESULT_OK, intent);
                 finish();
                 startActivity(intent);
