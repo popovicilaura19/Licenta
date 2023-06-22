@@ -40,6 +40,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_tv_hereAreResults"/>
 
+    <ImageView
+        android:id="@+id/id_img_quizResult"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        app:srcCompat="@drawable/shopping"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_quizResultsMoreInfo"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="326dp" />
+
     <Button
         android:id="@+id/id_btn_returnHome"
         android:layout_width="wrap_content"
@@ -51,5 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

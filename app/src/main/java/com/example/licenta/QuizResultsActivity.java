@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -16,6 +17,7 @@ public class QuizResultsActivity extends AppCompatActivity {
 
     private Button btnReturnHome;
     private TextView tvResults;
+    private ImageView imgQuizResult;
 
     private Intent intent;
     private QuizResponse quizResponse;
@@ -36,12 +38,28 @@ public class QuizResultsActivity extends AppCompatActivity {
         quizResponse = (QuizResponse) getIntent().getSerializableExtra(QUIZ_KEY);
         analyzeAnswers();
         tvResults.append(" " + creditType.toString() + "!");
+        setImageBasedOnResult();
     }
 
     private void initComponents() {
         tvResults = findViewById(R.id.id_tv_hereAreResults);
+        imgQuizResult = findViewById(R.id.id_img_quizResult);
         btnReturnHome = findViewById(R.id.id_btn_returnHome);
         btnReturnHome.setOnClickListener(returnHomeEventListener());
+    }
+
+    public void setImageBasedOnResult() {
+        if (creditType.equals(CreditType.STUDENT_LOAN)) {
+            imgQuizResult.setImageResource(R.drawable.student);
+        } else {
+            if (creditType.equals(CreditType.TRAVEL_LOAN)) {
+                imgQuizResult.setImageResource(R.drawable.travel);
+            } else {
+                if (creditType.equals(CreditType.HOUSE_LOAN)) {
+                    imgQuizResult.setImageResource(R.drawable.house);
+                }
+            }
+        }
     }
 
     private View.OnClickListener returnHomeEventListener() {
@@ -75,13 +93,6 @@ public class QuizResultsActivity extends AppCompatActivity {
                         if (!quizResponse.isHaveEconomies()) {
                             creditType = CreditType.PERSONAL_LOAN;
                         }
-                    }
-                }
-                {
-                    if (quizResponse.isMultipleInvestments()) {
-                        creditType = CreditType.PERSONAL_LOAN;
-                    } else {
-                        creditType = CreditType.TRAVEL_LOAN;
                     }
                 }
             }
