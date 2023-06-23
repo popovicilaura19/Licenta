@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActiveLoanDetailsActivity">
+
+    <ListView
+        android:id="@+id/id_lv_activeLoanRecord"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="84dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp">
+    </ListView>
+
+    <TextView
+        android:id="@+id/id_tv_record_monthlyRate"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/your_monthly_rate_is"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/id_tv_activeAmountDue"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:textColor="@color/light_green"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_activeAmountDue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_amount_due_left_is"
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="179dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/id_btn_activeLoan_back"
+        android:layout_marginBottom="32dp"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"/>
+
+    <Button
+        android:id="@+id/id_btn_activeLoan_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_home"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="380dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="64dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

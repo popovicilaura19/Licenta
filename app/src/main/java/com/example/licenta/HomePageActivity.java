@@ -53,9 +53,11 @@ public class HomePageActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcher;
     public static final String USER_KEY = "userKey";
     public static final String CLIENT_KEY = "clientKey";
+    public static final String ACTIVE_LOAN_KEY = "activeLoanKey";
     public static final String PENDING_REQUEST_KEY = "pendingRequestKey";
     public static final String QUIZ_KEY = "quizKey";
     private LoanRequest selectedPendingLoanRequest;
+    private LoanRequest selectedActiveLoan;
 
 
     @Override
@@ -165,6 +167,10 @@ public class HomePageActivity extends AppCompatActivity {
         return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedActiveLoan = activeLoans.get(position);
+                Intent intent = new Intent(getApplicationContext(), ActiveLoanDetailsActivity.class);
+                intent.putExtra(ACTIVE_LOAN_KEY, selectedActiveLoan);
+                startActivity(intent);
             }
         };
     }

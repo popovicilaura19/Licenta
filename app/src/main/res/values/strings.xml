@@ -103,6 +103,11 @@
     <string name="your_monthly_rate_will_be">Your monthly rate will be:</string>
     <string name="this_value_was_calculated_for_an_interest_rate_of_value">This value was calculated for an interest rate of value</string>
     <string name="credit_loan_monthly_rate_calculator">Credit Loan Monthly Rate Calculator</string>
+    <string name="record_id">Record Id:</string>
+    <string name="record_date">Record Date:</string>
+    <string name="amount_paid">Amount Paid:</string>
+    <string name="your_monthly_rate_is">Your monthly rate is</string>
+    <string name="your_amount_due_left_is">Your amount due left is</string>
 
 
 </resources>
