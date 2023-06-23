@@ -111,7 +111,11 @@ public class CalculatorActivity extends AppCompatActivity {
             if (spnCalculatorCreditType.getSelectedItem().toString().equalsIgnoreCase("House Loan")) {
                 interestRateByType = 4.5;
             } else {
-                interestRateByType = 3.5;
+                if (spnCalculatorCreditType.getSelectedItem().toString().equalsIgnoreCase("Travel Loan")) {
+                      interestRateByType = 3;}
+                else{
+                    interestRateByType=3.5;
+                }
             }
         }
         return interestRateByType;
