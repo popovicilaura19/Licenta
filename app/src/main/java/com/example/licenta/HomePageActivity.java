@@ -94,6 +94,11 @@ public class HomePageActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), AppointmentHistoryActivity.class);
                 intent.putExtra(CLIENT_KEY, client);
                 startActivity(intent);
+            } else {
+                if (item.getItemId() == R.id.id_item_predictions) {
+                    Intent intent = new Intent(getApplicationContext(), PredictionsActivity.class);
+                    startActivity(intent);
+                }
             }
         }
         return super.onOptionsItemSelected(item);
