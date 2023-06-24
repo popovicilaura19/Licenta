@@ -116,6 +116,8 @@
     <string name="if_you_would_like_more_details_please_access_the_source">If you would like more details, please access the source https://www.bnr.ro/NBR-Projections-4353-Mobile.aspx</string>
     <string name="this_is_the_current_prediction_for_romania_s_exchange_rate">This is the current prediction for Romania\'s exchange rate.</string>
     <string name="if_you_would_need_more_details_please_access_the_source_https_www_romaniajournal_ro_business_financial_ron_currency_prediction_for_2023">If you would need more details, please access the source https://www.romaniajournal.ro/business/financial/ron-currency-prediction-for-2023/</string>
+    <string name="this_is_the_current_prediction_for_eu_s_centralized_interest_rate">This is the current prediction for EU\'s centralized interest rate.</string>
+    <string name="for_any_more_details_you_need_please_access_the_source_https_www_ecb_europa_eu_pub_projections_html_ecb_projections202109_ecbstaff_1f59a501e2_en_html">For any more details you need, please access the source https://www.ecb.europa.eu/pub/projections/html/ecb.projections202109_ecbstaff~1f59a501e2.en.html</string>
 
 
 </resources>

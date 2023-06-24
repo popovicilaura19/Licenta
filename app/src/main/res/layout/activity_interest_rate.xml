@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InterestRateActivity">
+
+    <TextView
+        android:id="@+id/id_tv_interestRate_prediction"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/this_is_the_current_prediction_for_eu_s_centralized_interest_rate"
+        tools:layout_editor_absoluteX="248dp"
+        tools:layout_editor_absoluteY="63dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="48dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"/>
+
+    <ImageView
+        android:id="@+id/id_img_interestRate"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:srcCompat="@drawable/interest_rate_pred"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="81dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_interestRate_prediction"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/id_tv_interestRateLink"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/for_any_more_details_you_need_please_access_the_source_https_www_ecb_europa_eu_pub_projections_html_ecb_projections202109_ecbstaff_1f59a501e2_en_html"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="508dp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_img_interestRate"/>
+
+    <Button
+        android:id="@+id/id_btn_interest_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="604dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="48dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
