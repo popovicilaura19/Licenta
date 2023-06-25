@@ -44,6 +44,7 @@ public class HomePageActivity extends AppCompatActivity {
     private ListView lvActiveLoans;
     private ListView lvPendingLoans;
     private User user;
+    private Intent userIntent;
     private Client client = new Client();
     private List<LoanRequest> loanRequestList = new ArrayList<>();
     private List<LoanRequest> activeLoans = new ArrayList<>();
@@ -63,6 +64,7 @@ public class HomePageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userIntent = getIntent();
         user = (User) getIntent().getSerializableExtra(USER_KEY);
         clientService = new ClientService(getApplicationContext());
         clientService.getClientByUserId(user.getUserId(), getClientCallback());
@@ -98,10 +100,30 @@ public class HomePageActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.id_item_predictions) {
                     Intent intent = new Intent(getApplicationContext(), PredictionsActivity.class);
                     startActivity(intent);
+                } else {
+                    if (item.getItemId() == R.id.it_item_logOut) {
+                        AlertDialog dialog = new AlertDialog.Builder(HomePageActivity.this)
+                                .setTitle("Log Out")
+                                .setMessage("Are you sure you want to log out?")
+                                .setPositiveButton(R.string.dialog_yes_label, getPositiveLogOutDialogEvent())
+                                .setNegativeButton(R.string.dialog_no_label, getNegativeDialogEvent())
+                                .create();
+                        dialog.show();
+                    }
                 }
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private DialogInterface.OnClickListener getPositiveLogOutDialogEvent() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                setResult(RESULT_OK, userIntent);
+                finish();
+            }
+        };
     }
 
     private Callback<List<LoanRequest>> getLoanListCallback() {

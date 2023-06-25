@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
                         intent.putExtra(USER_KEY, (Serializable) user);
                         setResult(RESULT_OK, intent);
-                        finish();
+//                        finish();
                         launcher.launch(intent);
                     }
                 }
