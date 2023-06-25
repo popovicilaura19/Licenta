@@ -95,6 +95,7 @@ public class QuizResultsActivity extends AppCompatActivity {
     }
 
     public void analyzeAnswers() {
+        creditType = CreditType.PERSONAL_LOAN;
         if (quizResponse.isStudent()) {
             if (!quizResponse.isWantBigLoan()) {
                 creditType = CreditType.STUDENT_LOAN;
