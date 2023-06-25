@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -85,36 +84,28 @@ public class HomePageActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.id_item_requestHistory) {
-            Toast.makeText(getApplicationContext(),
-                            R.string.invalid_credentials,
-                            Toast.LENGTH_LONG)
-                    .show();
+        if (item.getItemId() == R.id.id_item_appointmentHistory) {
+            Intent intent = new Intent(getApplicationContext(), AppointmentHistoryActivity.class);
+            intent.putExtra(CLIENT_KEY, client);
+            startActivity(intent);
         } else {
-            if (item.getItemId() == R.id.id_item_appointmentHistory) {
-                Intent intent = new Intent(getApplicationContext(), AppointmentHistoryActivity.class);
-                intent.putExtra(CLIENT_KEY, client);
+            if (item.getItemId() == R.id.id_item_predictions) {
+                Intent intent = new Intent(getApplicationContext(), PredictionsActivity.class);
                 startActivity(intent);
             } else {
-                if (item.getItemId() == R.id.id_item_predictions) {
-                    Intent intent = new Intent(getApplicationContext(), PredictionsActivity.class);
-                    startActivity(intent);
+                if (item.getItemId() == R.id.it_item_logOut) {
+                    AlertDialog dialog = new AlertDialog.Builder(HomePageActivity.this)
+                            .setTitle("Log Out")
+                            .setMessage("Are you sure you want to log out?")
+                            .setPositiveButton(R.string.dialog_yes_label, getPositiveLogOutDialogEvent())
+                            .setNegativeButton(R.string.dialog_no_label, getNegativeDialogEvent())
+                            .create();
+                    dialog.show();
                 } else {
-                    if (item.getItemId() == R.id.it_item_logOut) {
-                        AlertDialog dialog = new AlertDialog.Builder(HomePageActivity.this)
-                                .setTitle("Log Out")
-                                .setMessage("Are you sure you want to log out?")
-                                .setPositiveButton(R.string.dialog_yes_label, getPositiveLogOutDialogEvent())
-                                .setNegativeButton(R.string.dialog_no_label, getNegativeDialogEvent())
-                                .create();
-                        dialog.show();
-                    }else{
-                        if(item.getItemId()==R.id.id_item_profile){
-                            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                            intent.putExtra(USER_KEY, user);
-                            startActivity(intent);
-                        }
+                    if (item.getItemId() == R.id.id_item_profile) {
+                        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                        intent.putExtra(USER_KEY, user);
+                        startActivity(intent);
                     }
                 }
             }
