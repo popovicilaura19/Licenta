@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.licenta.services.MailService;
 import com.example.licenta.utils.CreditType;
 import com.example.licenta.utils.QuizResponse;
 
@@ -18,6 +20,7 @@ public class QuizResultsActivity extends AppCompatActivity {
     private Button btnReturnHome;
     private TextView tvResults;
     private ImageView imgQuizResult;
+    private CheckBox yesSendMail;
 
     private Intent intent;
     private QuizResponse quizResponse;
@@ -44,6 +47,7 @@ public class QuizResultsActivity extends AppCompatActivity {
     private void initComponents() {
         tvResults = findViewById(R.id.id_tv_hereAreResults);
         imgQuizResult = findViewById(R.id.id_img_quizResult);
+        yesSendMail = findViewById(R.id.id_checkBox_yesSendMail_quizResults);
         btnReturnHome = findViewById(R.id.id_btn_returnHome);
         btnReturnHome.setOnClickListener(returnHomeEventListener());
     }
@@ -66,10 +70,28 @@ public class QuizResultsActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (yesSendMail.isChecked()) {
+                    sendEmail();
+                }
                 setResult(RESULT_OK, intent);
                 finish();
             }
         };
+    }
+
+    protected void sendEmail() {
+        String[] TO = new String[]{"laurica.popovici@gmail.com"};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Results For DigitalBank Credit Loan Quiz");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, MailService.setTextForEmail(creditType));
+        emailIntent.setType("message/rfc822");
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+        } catch (android.content.ActivityNotFoundException ignored) {
+        }
     }
 
     public void analyzeAnswers() {

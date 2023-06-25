@@ -52,6 +52,19 @@
         tools:layout_editor_absoluteX="134dp"
         tools:layout_editor_absoluteY="326dp" />
 
+    <CheckBox
+        android:id="@+id/id_checkBox_yesSendMail_quizResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/please_send_quiz_results_via_email_as_well"
+        android:textStyle="italic"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="558dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/id_btn_returnHome"
+        android:layout_marginBottom="64dp"/>
+
     <Button
         android:id="@+id/id_btn_returnHome"
         android:layout_width="wrap_content"
