@@ -70,7 +70,9 @@ public class RequestStatusActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendEmail();
+                if (loanRequest.getStatus() == RequestStatus.APPROVED) {
+                    sendEmail();
+                }
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -114,7 +116,7 @@ public class RequestStatusActivity extends AppCompatActivity {
         } else {
             loanRequest.setStatus(RequestStatus.REQUIRES_AGENT_REVIEW);
         }
-        if(loanRequest.getCreditType()==CreditType.STUDENT_LOAN && loanRequest.getOccupation()!=Occupation.STUDENT){
+        if (loanRequest.getCreditType() == CreditType.STUDENT_LOAN && loanRequest.getOccupation() != Occupation.STUDENT) {
             loanRequest.setStatus(RequestStatus.REJECTED);
         }
     }
