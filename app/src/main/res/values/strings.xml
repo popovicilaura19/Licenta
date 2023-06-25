@@ -124,6 +124,7 @@
     <string name="change_email">Change email</string>
     <string name="change_password">Change password</string>
     <string name="tap_this_button_to_start_the_change_of_password_process">Tap this button to start the change of password process.</string>
+    <string name="loan_amount">Loan Amount:</string>
 
 
 </resources>

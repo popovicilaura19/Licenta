@@ -38,9 +38,9 @@ public class LoanRequestAdapter extends ArrayAdapter<LoanRequest> {
         LoanRequest loanRequest = loanRequestList.get(position);
 
         addLoanId(loanRequest.getRequestId(), view);
-        addAmountDue(loanRequest.getTotalAmount(), view);
+        addTotalAmount(loanRequest.getTotalAmount(), view);
         addInterestDue((long) (loanRequest.getTotalAmount() * loanRequest.getInterestRate() / 100), view);
-        addDueBy(loanRequest.getPeriod(), loanRequest.getPeriod(), view);
+        addDueBy(loanRequest.getPeriod(), view);
 
         return view;
     }
@@ -50,9 +50,9 @@ public class LoanRequestAdapter extends ArrayAdapter<LoanRequest> {
         textView.append(" " + loanId);
     }
 
-    private void addAmountDue(long amountDue, View view) {
+    private void addTotalAmount(long totalAmount, View view) {
         TextView textView = view.findViewById(R.id.id_tv_amountDue);
-        textView.append(" " + calculateTextViewValue(String.valueOf(amountDue)));
+        textView.append(" " + calculateTextViewValue(String.valueOf(totalAmount)));
     }
 
     private void addInterestDue(long interestDue, View view) {
@@ -60,8 +60,11 @@ public class LoanRequestAdapter extends ArrayAdapter<LoanRequest> {
         textView.append(" " + calculateTextViewValue(String.valueOf(interestDue)));
     }
 
-    private void addDueBy(int expirationMonth, int expirationYear, View view) {
+    private void addDueBy(int period, View view) {
         TextView textView = view.findViewById(R.id.id_tv_dueBy);
+        int nrYears = period / 12;
+        int expirationMonth = 6;
+        int expirationYear = 2023 + nrYears;
         String value = context.getString(R.string.active_loan_due_by_template, expirationMonth, expirationYear);
         textView.append(" " + value);
     }

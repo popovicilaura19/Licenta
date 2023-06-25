@@ -32,7 +32,7 @@
         android:id="@+id/id_tv_amountDue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/amount_due"
+        android:text="@string/loan_amount"
         tools:layout_editor_absoluteX="168dp"
         tools:layout_editor_absoluteY="449dp"
         app:layout_constraintStart_toEndOf="@id/id_tv_idLoan"
