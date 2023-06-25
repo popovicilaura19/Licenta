@@ -109,6 +109,12 @@ public class HomePageActivity extends AppCompatActivity {
                                 .setNegativeButton(R.string.dialog_no_label, getNegativeDialogEvent())
                                 .create();
                         dialog.show();
+                    }else{
+                        if(item.getItemId()==R.id.id_item_profile){
+                            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                            intent.putExtra(USER_KEY, user);
+                            startActivity(intent);
+                        }
                     }
                 }
             }
