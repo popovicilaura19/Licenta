@@ -133,6 +133,13 @@ public class LoanRequestFormSecondActivity extends AppCompatActivity {
                     .show();
             return false;
         }
+        if (tietIban.getText().toString().length() < 24) {
+            Toast.makeText(getApplicationContext(),
+                            "The IBAN needs to be 24 characters long!",
+                            Toast.LENGTH_SHORT)
+                    .show();
+            return false;
+        }
         return true;
     }
 }

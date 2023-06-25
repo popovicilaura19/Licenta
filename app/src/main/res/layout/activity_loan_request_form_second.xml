@@ -28,6 +28,8 @@
         app:layout_constraintStart_toEndOf="@id/id_tv_iban"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:counterMaxLength="24"
+        app:counterEnabled="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp">
 
