@@ -68,7 +68,7 @@ public class CalculatorActivity extends AppCompatActivity {
                 double totalCreditAmount = Double.parseDouble(tietAmount.getText().toString());
                 double nrMonths = Double.parseDouble(tietMonths.getText().toString());
                 double interestRatePercent = getInterestRateByCreditType();
-                double monthlyRate = getMonthlyInterestEffectively(totalCreditAmount, nrMonths, interestRatePercent / 10);
+                double monthlyRate = ActiveLoanDetailsActivity.getMonthlyInterestEffectively(totalCreditAmount, nrMonths, interestRatePercent / 10);
                 int monthlyRateInteger = (int) monthlyRate;
                 tvMonthlyRate.setText(R.string.your_monthly_rate_will_be);
                 tvMonthlyRate.append(" " + monthlyRateInteger);
@@ -76,32 +76,6 @@ public class CalculatorActivity extends AppCompatActivity {
                 tvInterestRate.append(" " + interestRatePercent + "%");
             }
         };
-    }
-
-    public double getMonthlyInterestEffectively(double totalCreditAmount, double nrMonths, double interestRatePercent) {
-        double sum = 0;
-        for (int i = 1; i < nrMonths / 12; i++) {
-            sum += 1 / Math.pow(1 + interestRatePercent * 0.01, i);
-        }
-        double annuity = (totalCreditAmount / sum) / 12;
-        System.out.println("annuity: " + annuity);
-        double installment = 0.0;
-        double outstandingCreditBalance = totalCreditAmount - installment;
-        interestRatePercent = Math.pow((interestRatePercent + 1), (1.0 / 12.0)) * 12 - 12;
-        interestRatePercent = interestRatePercent / 12;
-        double interest = interestRatePercent * 0.1 * outstandingCreditBalance;
-        installment = annuity - interest;
-        double sumOfInterest = interest;
-        for (int i = 1; i < nrMonths && outstandingCreditBalance > 0; i++) {
-            outstandingCreditBalance = outstandingCreditBalance - installment;
-            interest = interestRatePercent * 0.1 * outstandingCreditBalance;
-            installment = annuity - interest;
-            sumOfInterest += interest;
-            System.out.println("outstanding credit balance: " + outstandingCreditBalance);
-            System.out.println("interest: " + interest);
-            System.out.println("installment: " + installment);
-        }
-        return sumOfInterest / 2;
     }
 
     public double getInterestRateByCreditType() {

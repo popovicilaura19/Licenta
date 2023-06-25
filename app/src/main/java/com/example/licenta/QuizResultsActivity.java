@@ -85,7 +85,7 @@ public class QuizResultsActivity extends AppCompatActivity {
 
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Results For DigitalBank Credit Loan Quiz");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, MailService.setTextForEmail(creditType));
+        emailIntent.putExtra(Intent.EXTRA_TEXT, MailService.setTextForEmailQuizResults(creditType));
         emailIntent.setType("message/rfc822");
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));

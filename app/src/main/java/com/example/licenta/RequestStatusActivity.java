@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.licenta.async.Callback;
 import com.example.licenta.dto.LoanRequest;
 import com.example.licenta.services.LoanRequestService;
+import com.example.licenta.services.MailService;
 import com.example.licenta.utils.CreditType;
 import com.example.licenta.utils.FamilySituation;
 import com.example.licenta.utils.Occupation;
@@ -69,10 +70,26 @@ public class RequestStatusActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sendEmail();
                 setResult(RESULT_OK, intent);
                 finish();
             }
         };
+    }
+
+    protected void sendEmail() {
+        String[] TO = new String[]{"laurica.popovici@gmail.com"};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Loan Request Approved");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, MailService.setTextForApprovedCreditLoan(loanRequest));
+        emailIntent.setType("message/rfc822");
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+        } catch (android.content.ActivityNotFoundException ignored) {
+        }
     }
 
     public void analyzeRequest() {

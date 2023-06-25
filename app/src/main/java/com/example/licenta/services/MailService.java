@@ -1,10 +1,42 @@
 package com.example.licenta.services;
 
+import com.example.licenta.ActiveLoanDetailsActivity;
+import com.example.licenta.dto.LoanRequest;
 import com.example.licenta.utils.CreditType;
 
 public class MailService {
 
-    public static String setTextForEmail(CreditType creditType) {
+    public static String setTextForApprovedCreditLoan(LoanRequest loanRequest) {
+        StringBuilder text = new StringBuilder();
+        text.append("Your loan request has been approved by our system!").append("\n").append("You will receive a money transfer to the account you provided in 24 to 48 hours. That money can be used however you feel fit. ");
+        text.append("\n");
+        text.append("Be careful to pay every month before the 15th, or else there will be penalties!");
+        text.append("\n").append("The payment needs to be made via transfer to the following account: DGBNK1234566789.").append("\n");
+        text.append("This is the information you provided in the request form. Please make sure everything is okay. If not, please contact us to make changes.");
+        setPersonalInfo(loanRequest, text);
+        text.append("\n").append("If you need any more information, please don't hesitate to contact us.");
+        text.append("\n").append("\n");
+        text.append("Happy that you are our client!").append("\n").append("\n");
+        text.append("Best regards,").append("\n").append("\n").append("Your team at DigitalBank");
+        return text.toString();
+    }
+
+    public static void setPersonalInfo(LoanRequest loanRequest, StringBuilder text) {
+        text.append("\n").append("Credit Type: ").append(loanRequest.getCreditType());
+        text.append("\n").append("Total Amount: ").append(loanRequest.getTotalAmount());
+        text.append("\n").append("Credit Period: ").append(loanRequest.getPeriod()).append(" months");
+        text.append("\n").append("Interest Rate: ").append(loanRequest.getInterestRate());
+        text.append("\n").append("IBAN: ").append(loanRequest.getIBAN());
+        text.append("\n").append("Number of kids: ").append(loanRequest.getNrKids());
+        text.append("\n").append("Family situation: ").append(loanRequest.getFamilySituation());
+        text.append("\n").append("Occupation: ").append(loanRequest.getOccupation());
+        text.append("\n").append("Date of employment: ").append(loanRequest.getDateOfEmployment());
+        text.append("\n").append("Monthly income: ").append(loanRequest.getMonthlyIncome());
+        int monthlyRate = (int) ActiveLoanDetailsActivity.getMonthlyInterestEffectively(loanRequest.getTotalAmount(), loanRequest.getPeriod(), loanRequest.getInterestRate() / 10);
+        text.append("\n").append("Calculated monthly rate: ").append(monthlyRate);
+    }
+
+    public static String setTextForEmailQuizResults(CreditType creditType) {
         StringBuilder text = new StringBuilder();
         text.append("Here are your quiz results!").append("\n").append("After carefully analysing your answers, we think this is the best solution for you: ").append(creditType.toString()).append(".");
         text.append("\n");
