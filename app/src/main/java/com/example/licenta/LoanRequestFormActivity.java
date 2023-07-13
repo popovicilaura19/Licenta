@@ -189,12 +189,48 @@ public class LoanRequestFormActivity extends AppCompatActivity {
     }
 
     private boolean isValid() {
-        if (tietTotalAmount.getText().toString().isEmpty() || tietInterestRate.getText().toString().isEmpty()) {
+        if (tietTotalAmount.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(),
                             R.string.sign_in_form_error,
                             Toast.LENGTH_SHORT)
                     .show();
             return false;
+        }
+        if (spnCreditType.getSelectedItem().toString().equalsIgnoreCase(CreditType.STUDENT_LOAN.toString())) {
+            if ((Integer.parseInt(tietTotalAmount.getText().toString())) > 50000) {
+                Toast.makeText(getApplicationContext(),
+                                R.string.student_loan_max_amount,
+                                Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        }
+        if (spnCreditType.getSelectedItem().toString().equalsIgnoreCase(CreditType.TRAVEL_LOAN.toString())) {
+            if ((Integer.parseInt(tietTotalAmount.getText().toString())) > 35000) {
+                Toast.makeText(getApplicationContext(),
+                                R.string.travel_loan_max_amount,
+                                Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        }
+        if (spnCreditType.getSelectedItem().toString().equalsIgnoreCase(CreditType.PERSONAL_LOAN.toString())) {
+            if ((Integer.parseInt(tietTotalAmount.getText().toString())) > 65000) {
+                Toast.makeText(getApplicationContext(),
+                                R.string.personal_loan_max_amount,
+                                Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        }
+        if (spnCreditType.getSelectedItem().toString().equalsIgnoreCase(CreditType.HOUSE_LOAN.toString())) {
+            if ((Integer.parseInt(tietTotalAmount.getText().toString())) > 300000) {
+                Toast.makeText(getApplicationContext(),
+                                R.string.house_loan_max_amount,
+                                Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
         }
         return true;
     }

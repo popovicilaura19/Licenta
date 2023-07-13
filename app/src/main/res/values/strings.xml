@@ -134,6 +134,12 @@
     <string name="password_incorrect_not_match">Your password is not correct!</string>
     <string name="not_match">Your passwords are different!</string>
 
+    <string name="student_loan_max_amount">The maximum amount allowed for Student Loan is 50000$!</string>
+    <string name="travel_loan_max_amount">The maximum amount allowed for Travel Loan is 35000!</string>
+    <string name="personal_loan_max_amount">The maximum amount allowed for Personal Loan is 65000!</string>
+    <string name="house_loan_max_amount">The maximum amount allowed for House Loan is 300000!</string>
+
+
 
 
 
