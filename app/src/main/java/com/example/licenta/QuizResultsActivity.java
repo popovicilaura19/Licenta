@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.licenta.services.MailSenderService;
 import com.example.licenta.services.MailService;
 import com.example.licenta.utils.CreditType;
 import com.example.licenta.utils.QuizResponse;
@@ -80,18 +81,8 @@ public class QuizResultsActivity extends AppCompatActivity {
     }
 
     protected void sendEmail() {
-        String[] TO = new String[]{"laurica.popovici@gmail.com"};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Results For DigitalBank Credit Loan Quiz");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, MailService.setTextForEmailQuizResults(creditType));
-        emailIntent.setType("message/rfc822");
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
-        } catch (android.content.ActivityNotFoundException ignored) {
-        }
+        MailSenderService mailSender = new MailSenderService("Results For DigitalBank Credit Loan Quiz", MailService.setTextForEmailQuizResults(creditType));
+        mailSender.execute();
     }
 
     public void analyzeAnswers() {
