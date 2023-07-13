@@ -4,7 +4,8 @@ public enum LocationName {
     VICTORIEI_PLAZA("Victoriei Plaza"),
     STRADA_AMZEI("Strada Amzei"),
     AUREL_VLAICU("Aurel Vlaicu"),
-    GROZAVESTI("Grozavesti");
+    GROZAVESTI("Grozavesti"),
+    ZOOM_MEETING("Zoom Meeting");
 
     private String locationName;
 
