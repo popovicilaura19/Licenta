@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:textSize="20sp"
         android:fontFamily="sans-serif-condensed"
         android:textStyle="italic"
@@ -69,6 +69,66 @@
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/id_btn_profile_changeEmail"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_til_profile_currentPass"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        android:layout_marginTop="32dp"
+        tools:layout_editor_absoluteY="374dp"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_tv_profile_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_tiet_profile_current"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/current_password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_til_profile_newPass"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="452dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_til_profile_currentPass">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_tiet_profile_new"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_til_profile_confirm"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="558dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_til_profile_newPass">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_tiet_profile_confirm"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/confirm_new_password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/id_btn_profile_changePassword"
         android:layout_width="200dp"
@@ -79,7 +139,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_tv_profile_password"/>
+        app:layout_constraintTop_toBottomOf="@id/id_til_profile_confirm"/>
 
     <Button
         android:id="@+id/id_btn_profile_home"
@@ -91,6 +151,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="64dp"/>
+        android:layout_marginBottom="32dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

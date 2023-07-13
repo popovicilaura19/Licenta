@@ -123,8 +123,18 @@
     <string name="this_is_your_current_registered_email_address_tap_to_change_it">This is your current registered email address. Tap to change it.</string>
     <string name="change_email">Change email</string>
     <string name="change_password">Change password</string>
-    <string name="tap_this_button_to_start_the_change_of_password_process">Tap this button to start the change of password process.</string>
+    <string name="tap_this_button_to_start_the_change_of_password_process">Input your current password, then please choose a new one and type it in both fields.</string>
     <string name="loan_amount">Loan Amount:</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+
+    <string name="email_sent_for_new_email_address">Your email address has been updated!</string>
+    <string name="password_updated">Your password has been successfully updated!</string>
+    <string name="password_incorrect_not_match">Your password is not correct!</string>
+    <string name="not_match">Your passwords are different!</string>
+
+
 
 
 </resources>
